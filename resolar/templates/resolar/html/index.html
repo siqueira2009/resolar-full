@@ -1,0 +1,342 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReSolar</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'resolar/imgs/LogoSemNome.png' %}">
+    <link rel="stylesheet" href="{% static 'resolar/styles/home/base.css' %}">
+    <link rel="stylesheet" href="{% static 'resolar/styles/home/responsive.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- Tela de indisponibilidade para telas muito pequenas -->
+    <div id="indisponivel">
+        <h2>Site indisponível para sua resolução de tela</h2>
+        <p>Lamentamos por isto! &#128546;</p>
+    </div>
+
+    <!-- Termos e condições -->
+    <div id="termos">
+        <h1 class="title" id="termosTitle">Termos e Condições</h1>
+        <p class="desc">Última atualização: 05/10/2025</p>
+
+        <ol>
+            <li>
+                <span class="termosTitle">1. Aceitação dos Termos</span>
+                <br/>
+                Ao utilizar a ReSolar, você declara que leu, entendeu e concorda em cumprir estes Termos e Condições, bem como nossa Política de Privacidade.
+                Caso não concorde com algum dos termos, não utilize nossos serviços.
+            </li>
+            <li>
+                <span class="termosTitle">2. Uso da Plataforma</span>
+                <br/>
+                A ReSolar disponibiliza informações, ferramentas e funcionalidades voltadas para o reaproveitamento e descarte consciente de painéis solares.
+                Você se compromete a utilizar o site de forma ética e responsável, sem violar leis ou direitos de terceiros.
+            </li>
+            <li>
+                <span class="termosTitle">3. Cadastro e Responsabilidade do Usuário</span>
+                <br/>
+                Para acessar certas funcionalidades, pode ser necessário criar uma conta.
+                O usuário é responsável por manter a confidencialidade de suas informações de login e pelos dados fornecidos, que devem ser verdadeiros e atualizados.
+            <li>
+                <span class="termosTitle">4. Direitos de Propriedade Intelectual</span>
+                <br/>
+                Todo o conteúdo da ReSolar (textos, imagens, logotipos, códigos e design) é protegido por direitos autorais e pertencem à ReSolar.
+                É proibido copiar, reproduzir ou redistribuir qualquer material sem autorização expressa.
+            </li>
+            <li>
+                <span class="termosTitle">5. Coleta e Uso de Dados</span>
+                <br/>
+                Os dados coletados são utilizados apenas para fins de funcionamento e melhoria dos serviços, conforme descrito na Política de Privacidade.
+                A ReSolar não compartilha informações pessoais sem consentimento.
+            </li>
+            <li>
+                <span class="termosTitle">6. Limitação de Responsabilidade</span>
+                <br/>
+                A ReSolar não se responsabiliza por danos diretos ou indiretos resultantes do uso indevido da plataforma ou de informações incorretas fornecidas pelos usuários.
+                Nosso serviço é oferecido “como está”, sem garantias de desempenho contínuo ou ausência de erros.
+            <li>
+                <span class="termosTitle">7. Alterações nos Termos</span>
+                <br/>
+                A ReSolar pode atualizar estes Termos a qualquer momento. A versão mais recente estará sempre disponível nesta página.
+                O uso contínuo do site após as alterações implica na aceitação das novas condições.
+            </li>
+            <li>
+                <span class="termosTitle">8. Política de Privacidade</span>
+                <br/>
+                A ReSolar coleta apenas os dados necessários para o funcionamento da plataforma — como nome, e-mail e informações dos painéis solares cadastrados.
+                Esses dados servem para registrar coletas, calcular créditos e melhorar o serviço.
+
+                Seguimos a Lei Geral de Proteção de Dados (Lei nº 13.709/2018), garantindo o uso responsável e seguro das informações.
+                <span style="font-weight: 500;">Não compartilhamos dados pessoais com terceiros sem consentimento, exceto quando exigido por lei.</span>
+            </li>
+        </ol>
+
+        <button type="button" id="termosOkay">Ciente<i class="fa-solid fa-check"></i></button>
+    </div>
+
+    <!-- Cabeçalho -->
+    <header>
+        <div id="logo">
+            <a href="{% url 'inicio' %}"><img src="{% static 'resolar/imgs/SVGs/Logo.svg' %}" alt="Logo"></a>
+        </div>
+
+        <!-- Opções do computador -->
+        <nav id="navPC">
+            <ul>
+                <li><a class="nav1" href="#proposito">Nosso propósito</a></li>
+                <li><a class="nav1" href="#funcionamento">Funcionamento</a></li>
+                <li><a class="nav1" href="#duvidas">Dúvidas</a></li>
+                <li><a class="nav1" href="mailto:lucas.s.siqueira.2009@gmail.com" target="_blank">Contato</a></li>
+                <li id="reciclarBtn">
+                    <i id="reciclarIcon" class="fa-solid fa-recycle"></i>
+                    <a>Reciclar</a>
+                </li>
+                <li id="userBtn" style="display: flex; justify-content: center;">
+                    <a style="cursor: pointer;">
+                        <i id="user" class="fa-solid fa-circle-user nav1"></i>
+                    </a>
+
+                    <ul id="userOpt">
+                        {% if not user.is_authenticated %}
+                            <div id="naoLogado" class="divOpts">
+                                <li><a href="{% url 'entrar' %}"><i class="fa-solid fa-user-plus"></i>Entrar</a></li>
+                            </div>
+                        {% else %}
+                            <div id="logado" class="divOpts">
+                                <li style="text-align: center; max-width: 150px;">Olá, <span id="primeiroNome" style="max-width: 150px;">{{user.userprofile.nome}}</span></li>
+                                <hr> 
+                                <li><a href="{% url 'perfil' %}"><i class="fa-solid fa-user-pen"></i>Minha Conta</a></li>
+                                <li><a href="{% url 'dashboard' %}"><i class="fa-solid fa-solar-panel"></i>Meus Painéis</a></li>
+                                <li><a href="{% url 'sair' %}"><i class="fa-solid fa-right-from-bracket"></i>Sair</a></li>
+                            </div>
+                        {% endif %}
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Botão para abrir menu no mobile -->
+        <div id="menu">
+            <i id="menuIcon" class="fa-solid fa-bars"></i>
+        </div>
+
+    </header>
+
+    <!-- Menu mobile -->
+    <div id="menuResp">
+        <nav id="navMob">
+            <ul>
+                <li id="primeiroLink"><a class="nav1" href="#proposito"><i class="fa-solid fa-sun iconesResponsivo"></i>Nosso propósito</a></li>
+                <li><a class="nav1" href="#funcionamento"><i class="fa-solid fa-briefcase iconesResponsivo"></i>Funcionamento</a></li>
+                <li><a class="nav1" href="#duvidas"><i class="fa-solid fa-question iconesResponsivo"></i>Dúvidas</a></li>
+                <li><a class="nav1" href="mailto:lucas.s.siqueira.2009@gmail.com" target="_blank"><i class="fa-solid fa-mobile-screen iconesResponsivo"></i>Contato</a></li>
+                <li><a class="nav1" href="#reciclar"><i class="fa-solid fa-recycle iconesResponsivo"></i>Reciclar</a></li>
+                <br/>
+                {% if not user.is_authenticated %}
+                    <div id="naoLogado">
+                        <li><a class="nav1" href="{% url 'entrar' %}"><i class="fa-solid fa-circle-user iconesResponsivo"></i>Registrar ou Entrar</a></li>
+                    </div>
+                {% else %}
+                    <div id="logado">
+                        <li><a class="nav1" href="{% url 'perfil' %}"><i class="fa-solid fa-user-pen iconesResponsivo"></i>Minha Conta</a></li>
+                        <li><a class="nav1" href="{% url 'dashboard' %}"><i class="fa-solid fa-circle-user iconesResponsivo"></i>Meus Painéis</a></li>
+                        <li><a class="nav1" href="{% url 'sair' %}"><i class="fa-solid fa-right-from-bracket iconesResponsivo"></i>Sair</a></li>
+                    </div>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <div id="heroSection">
+        <table width="100%" height="100%">
+            <tr>
+                <td id="heroText">
+                    <h1><span>Receba</span> pelo descarte correto</h1>
+                    <p>Participe do processo de reciclagem do seu painel e receba por isto.</p>
+                    <button id="saberMais"><i id="saberMaisIcon" class="fa-solid fa-arrow-down"></i>Saber mais</button>
+                </td>
+                <td id="heroImg">
+                    <img src="{% static 'resolar/imgs/SVGs/Voluntários.svg' %}" alt="">
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Propósito -->
+    <div id="proposito">
+        <p id="propTitle" class="title">Por que existimos?</p>
+        <p id="propDesc" class="desc">Nosso objetivo é facilitar o descarte correto de painéis solares</p>
+        <div id="propContent">
+            <p id="propText">
+                Nós existimos, simplesmente, para acabar com o ciclo maléfico do descarte de painéis solares. Atualmente, esses equipamentos, quando quebrados ou substituídos, são descartados de maneira incorreta. Esse tipo de descarte representa uma ameaça silenciosa: em poucos anos, quando milhares de painéis chegarem ao fim da sua vida útil, os impactos ambientais serão enormes. Metais pesados, vidros e componentes químicos poderão contaminar o solo, os mares e os ecossistemas inteiros.
+                <br/>
+                Nosso propósito é transformar esse problema em uma oportunidade. Acreditamos que a energia solar deve ser limpa do início ao fim — da geração ao descarte. Por isso, trabalhamos para dar um novo destino aos painéis usados, promovendo a reciclagem, o reaproveitamento e a responsabilidade ambiental.
+                <br/>
+                Mais do que uma iniciativa sustentável, somos parte de um movimento por um futuro realmente verde, em que tecnologia e natureza coexistem em equilíbrio.
+            </p>
+            <p id="propTextResp">Nós exisitimos, simplesmente, para acabar com o ciclo maléfico do descarte de painéis solares. Atualmente, esses equipamentos, quando quebrados ou trocados, são descartados de uma maneira incorreta.</p>
+            <p id="propTextMais" style="display: none;">Nós exisitimos, simplesmente, para acabar com o ciclo maléfico do descarte de painéis solares. Atualmente, esses equipamentos, quando quebrados ou trocados, são descartados de uma maneira incorreta. Por causa deste descarte, daqui a alguns anos, quando diversos painéis chegarem ao fim da sua vida útil, causará diversos problemas no solo, nos mares e nos ecossistemas, por causa dos materiais que constituem esses equipamentos.
+                <br/>
+                Nosso propósito é transformar esse problema em uma oportunidade. Acreditamos que a energia solar deve ser limpa do início ao fim — da geração ao descarte. Por isso, trabalhamos para dar um novo destino aos painéis usados, promovendo a reciclagem, o reaproveitamento e a responsabilidade ambiental.
+                <br/>
+                Mais do que uma iniciativa sustentável, somos parte de um movimento por um futuro realmente verde, em que tecnologia e natureza coexistem em equilíbrio.
+            </p>
+            <p id="propLerMais">Ler Mais</p>
+            <img id="propImg" src="{% static 'resolar/imgs/SVGs/Lixao.svg' %}" alt="">
+            <div id="prop1400">
+                <img id="propImg1400" src="{% static 'resolar/imgs/SVGs/Lixao.svg' %}" alt="">
+                <img id="propProc1400" src="{% static 'resolar/imgs/SVGs/InformacoesVert.svg' %}" alt="">
+            </div>
+        </div>
+
+        <div id="processoInfo">
+            <div class="processoImg">
+                <img src="{% static 'resolar/imgs/SVGs/Informações.svg' %}" alt="">
+            </div>
+        </div>
+    </div>
+
+    <!-- Funcionamento -->
+    <div id="funcionamento">
+        <p id="funcTitle" class="title">Como funciona?</p>
+        <p id="funcDesc" class="desc">Nosso processo passa por algumas etapas, veja-os aqui</p>
+        <ul id="funcOpts">
+            <li class="option" onclick="opt(0, 'normal')">Registro de Dados</li>
+            <li class="option" onclick="opt(1, 'normal')">Agendamento</li>
+            <li class="option" onclick="opt(2, 'normal')">Análise Técnica</li>
+            <li class="option" onclick="opt(3, 'normal')">Desmontagem</li>
+            <li class="option" onclick="opt(4, 'normal')">Venda</li>
+            <li class="option" onclick="opt(5, 'normal')">Benefícios</li>
+        </ul>
+
+        <div id="funcOptsResp">
+            <ul id="funcOpts1">
+                <li class="optionResp" onclick="opt(0, 'mobile')">Registro de Dados</li>
+                <li class="optionResp" onclick="opt(1, 'mobile')">Agendamentos</li>
+                <li class="optionResp" onclick="opt(2, 'mobile')">Análise Técnica</li>
+            </ul>
+            <ul id="funcOpts2">
+                <li class="optionResp" onclick="opt(3, 'mobile')">Desmontagem</li>
+                <li class="optionResp" onclick="opt(4, 'mobile')">Venda</li>
+                <li class="optionResp" onclick="opt(5, 'mobile')">Benefícios</li>
+            </ul>
+        </div>
+
+        <div id="funcInfo">
+            <p id="funcText">O processo começa com o registro completo das informações do painel solar que será destinado à reciclagem. O usuário acessa a plataforma e insere dados como o modelo do painel, fabricante, ano de aquisição, estado atual de funcionamento e histórico de manutenção, se houver. Além disso, são solicitadas algumas informações pessoais básicas, como nome, endereço e forma de contato, para que a equipe responsável possa dar continuidade ao processo de forma segura e eficiente. Esse cadastro detalhado é essencial para garantir e facilitar a coleta do painel, além de permitir a análise adequada das condições do equipamento. Com esses dados, é possível avaliar a viabilidade de reaproveitamento, garantindo mais segurança e eficácia no processo.</p>
+            <p id="funcTextResp">O processo começa com o registro completo das informações do painel solar que será destinado à reciclagem. O usuário acessa a plataforma e insere dados como o modelo do painel, fabricante, ano de aquisição, estado atual de funcionamento e histórico de manutenção, se houver.</p>
+            <img id="funcImg" src="{% static 'resolar/imgs/SVGs/Funcionamento/Cadastro.svg' %}" alt="">
+        </div>
+
+    </div>
+
+    <!-- Dúvidas -->
+    <div id="duvidas">
+        <p id="duvidasTitle" class="title">Dúvidas Frequentes</p>
+        <p id="duvidasDesc" class="desc">Dúvidas frequentemente perguntadas</p>
+
+        <div id="duvidasContent">
+            <div id="duvidasImg">
+                <img src="{% static 'resolar/imgs/SVGs/Duvida.svg' %}" alt="">
+            </div>
+            <div id="duvidasPerguntas">
+                <h3 class="duvida" onclick="duvida(0)" style="margin-top: 0px"><i class="fa-solid fa-magnifying-glass lupinha"></i>Quem pode participar do processo de reciclagem?<i class="fa-solid fa-angle-down seta-abrir"></i></h3>
+                <div id="resposta0" class="respostas">
+                    <p>Qualquer pessoa ou empresa que possua painéis solares pode participar do nosso sistema de reciclagem, independentemente da quantidade ou do motivo para o descarte.</p>
+                </div>
+                <h3 class="duvida" onclick="duvida(1)"><i class="fa-solid fa-magnifying-glass lupinha"></i>Tenho um painel muito antigo, ainda posso descartá-lo aqui?<i class="fa-solid fa-angle-down seta-abrir"></i></h3>
+                <div id="resposta1" class="respostas">
+                    <p>Sim, painéis antigos também são aceitos e você receberá créditos proporcionais ao tempo de uso, incentivando o descarte no momento correto.</p>
+                </div>
+                <h3 class="duvida" onclick="duvida(2)"><i class="fa-solid fa-magnifying-glass lupinha"></i>Como recebo os créditos após o descarte?<i class="fa-solid fa-angle-down seta-abrir"></i></h3>
+                <div id="resposta2" class="respostas">
+                    <p>Após o fim do processo listado aqui, os créditos são automaticamente adicionados à sua conta para serem usados em descontos em compras futuras.</p>
+                </div>
+                <h3 class="duvida" onclick="duvida(3)"><i class="fa-solid fa-magnifying-glass lupinha"></i>Há algum custo para o usuário participar do programa?<i class="fa-solid fa-angle-down seta-abrir"></i></h3>
+                <div id="resposta3" class="respostas">
+                    <p>Não, o serviço é totalmente gratuito para os usuários, incluindo registro, coleta e reciclagem.</p>
+                </div>
+                <h3 class="duvida" onclick="duvida(4)"><i class="fa-solid fa-magnifying-glass lupinha"></i>O que acontece com os materiais reciclados?<i class="fa-solid fa-angle-down seta-abrir"></i></h3>
+                <div id="resposta4" class="respostas">
+                    <p>Os materiais são separados e vendidos para empresas que reaproveitam vidro, silício, chumbo e outros componentes, contribuindo para a economia circular e redução de resíduos.</p>
+                </div>
+                <h3 class="duvida" onclick="duvida(5)"><i class="fa-solid fa-magnifying-glass lupinha"></i>Como a empresa se sustenta?<i class="fa-solid fa-angle-down seta-abrir"></i></h3>
+                <div id="resposta5" class="respostas">
+                    <p>Uma porcentagem dos lucros recebidos nas vendas dos painéis solares reparados e das matérias primas recicladas é voltada para a empresa e uma outra porcentagem é voltada para a bonificação dos usuários.</p>
+                </div>
+                <h3 class="duvida" onclick="duvida(6)"><i class="fa-solid fa-magnifying-glass lupinha"></i>Como sei a quantidade de créditos que irei receber?<i class="fa-solid fa-angle-down seta-abrir"></i></h3>
+                <div id="resposta6" class="respostas">
+                    <p>A quantidade de créditos recebida é proporcional ao quão velho é o aparelho e o quanto de lucro que pode ser obtido dele. Após realizar o cadastro, os seus cadastro aparecem no dashboard, junto com as informações do seu cadastro.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reciclar -->
+    <div id="reciclar">
+        <div id="reciclarText">
+            <p id="reciclarTitle" class="title">E aí, bora reciclar?</p>
+            <p id="reciclarDesc" class="desc">Clique no botão abaixo para começar seu registro para reciclagem</p>
+            <p id="tempo">10 minutos</p>
+            <p id="tempoResto">é o tempo que você precisa para cadastrar o seu painel solar</p>
+            <button id="começarAgora" onclick="cadastro()" onmouseenter="saberMaisAnim()"><i id="começarIcon" class="fa-solid fa-arrow-up-right-from-square"></i>Começar agora</button>
+        </div>
+        <div id="reciclarImg">
+            <img src="{% static 'resolar/imgs/SVGs/Reciclagem.svg' %}" alt="">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div id="footerLeft">
+            <img src="{% static 'resolar/imgs/SVGs/Logo2.svg' %}" alt="">
+            <p>Copyright © 2025 Resolar. <br/>Todos os direitos reservados.</p>
+            <ul>
+                <li><a title="Lucas Siqueira" href="https://github.com/siqueira2009" target="_blank"><i class="fa-brands fa-github"></i></a></li>
+                <li><a title="Lucas Siqueira" href="https://www.linkedin.com/in/lucasdesouzasiqueira/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                <li><a title="Gabriel Darbello" href="https://github.com/Gabriel-Darbello" target="_blank"><i class="fa-brands fa-github"></i></a></li>
+            </ul>
+        </div>
+
+        <div id="footerMid">
+            <div class="footerContent">
+                <ul id="list1">
+                    <li class="listTitle">Página</li>
+                    <li><a href="#proposito">Sobre Nós</a></li>
+                    <li><a href="#funcionamento">Funcionamento</a></li>
+                    <li><a href="#duvidas">Dúvidas</a></li>
+                    <li><a href="#reciclar">Reciclar</a></li>
+                    <li><a href="https://drive.google.com/file/d/1Z1KKfEpb9x7dzUDsO9hsVzh6dBkNKT0s/view" target="_blank">Diário de Bordo</a></li>
+                </ul>
+                <ul id="list2">
+                    <li class="listTitle listTitleSecond">Suporte</li>
+                    <li><a href="https://wa.me/5519990153963" target="_blank">WhatsApp 1</a> - <a href="https://wa.me/5519994259533" target="_blank">WhatsApp 2</a></li>
+                    <li><a href="tel:+5519990153963" target="_blank">Ligar 1</a> - <a href="tel:+5519994259533" target="_blank">Ligar 2</a></li>
+                    <li><a href="mailto:lucas.s.siqueira.2009@gmail.com" target="_blank">Email 1</a> - <a href="mailto:gadarbello@gmail.com" target="_blank">Email 2</a></li>
+                </ul>
+                <ul id="list3">
+                    <li class="listTitle listTitleSecond">Termos & Condições</li>
+                    <li>Para saber mais sobre os termos de condições e como os dados são manipulados, clique <a id="aTermos">aqui</a></li>
+                    <li>Mas, a princípio, nenhum dado pessoal é disponibilizado e não sai do nosso banco de dados</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="footerRight">
+            <img src="{% static 'resolar/imgs/LogoBentao.png' %}" alt="">
+            <p>Apoio Institucional</p>
+            <p>Professor Orientador: Leonardo Arruda</p>
+            <p>Professora Coorientadora: Simone Lacerda</p>
+            <ul>
+                <li><a href="https://www.instagram.com/etecbentoquirinooficial/" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+                <li><a href="https://etecbentoquirino.com.br/new/" target="_blank"><i class="fa-solid fa-link"></i></a></li>
+            </ul>
+        </div>
+    </footer>
+    <script src="{% static 'resolar/scripts/home.js' %}"></script>
+</body>
+</html>

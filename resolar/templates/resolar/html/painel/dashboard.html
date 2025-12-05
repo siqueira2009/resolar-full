@@ -1,0 +1,235 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Painéis</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'resolar/imgs/LogoSemNome.png' %}">
+    <link rel="stylesheet" href="{% static 'resolar/styles/painel/dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'resolar/styles/painel/responsive_dashboard.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- Tela de Indisponibilidade -->
+    <div id="indisponivel">
+        <h2>Site indisponível para sua resolução de tela</h2>
+        <p>Lamentamos por isto! &#128546;</p>
+    </div>
+
+    <!-- Container com conteúdo -->
+    <div id="container">
+
+        <!-- Menu Lateral -->
+        <div id="menu">
+
+            <!-- Botão de abrir menu -->
+            <div id="menuToggle">
+                <div id="menuContent">
+                    <i id="menuIcon" class="fa-solid fa-bars"></i>
+                    <span>Dashboard</span>
+                </div>
+            </div>
+
+            <!-- Lista de painéis cadastrados -->
+            <div id="menuItems">
+                <div id="itens">
+                    {% for painel in user.paineis.all %}
+                    <div class="menuItem"
+                        data-modelo="{{ painel.modelo }}"
+                        data-marca="{{ painel.marca }}"
+                        data-potencia="{{ painel.potencia }}"
+                        data-eficiencia="{{ painel.eficiencia }}"
+                        data-fabricacao="{{ painel.dataFabr|date:'d/m/Y' }}"
+                        data-condicao="{{ painel.condicao }}"
+                        data-funcionamento="{{ painel.estado }}"
+                        data-peso="{{ painel.peso }}"
+                        data-dimensao="{{ painel.dimensao }}"
+                        data-data="{{ painel.dataColeta }}"
+                        data-endereco="{{ painel.endereco }}"
+                        data-comentarios="{{ painel.comentarios }}"
+                        data-instalacao="{{ painel.dataInst|date:'d/m/Y' }}"
+                        data-celulas="{{ painel.qtdCel }}"
+                        data-tipo="{{ painel.tipo }}"
+                        data-motivo="{{ painel.motivo }}"
+                        data-inversor="{{ painel.inversor }}"
+                        data-sistema="{{ painel.sistema }}"
+                        data-tensao="{{ painel.tensao }}"
+                        data-corrente="{{ painel.corrente }}">
+                        <i class="fa-solid fa-solar-panel"></i>
+                        <p>{{ painel.modelo }} - {{ painel.marca }}</p>
+                    </div>
+                    {% empty %}
+                        <p style="width: 100%; text-align: center; font-size:14px;"> Não há painéis cadastrados </p>
+                    {% endfor %}
+                </div>
+
+                <div id="adicionar">
+                    <img src="{% static 'resolar/imgs/SVGs/Adicionar.svg' %}" alt="Adicionar">
+                    <br/>
+                    <span>Cadastre novos paineis <a href="{% url 'reciclar' %}">clicando aqui</a></span>
+                </div>
+            </div>
+
+            <div id="menuHome">
+                <a id="user" href="{% url 'perfil' %}" class="options">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Perfil</span>
+                </a>
+                <a id="home" href="{% url 'inicio' %}" class="options">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Início</span>
+                </a>
+            </div>
+
+        </div>
+        {% if user.paineis.exists %}
+        <!-- Cards com informações -->
+        <div id="informacoes">
+            <div id="header">
+                <h1 id="painelAtual">Painel #1</h1>
+                <p id="creditosContent">🪙 Créditos gerados: <span id="qtdCreditos">0</span></p>
+            </div>
+            <div id="bentoGrid">
+                <div class="card card-large">
+                    <div class="card-icon">🗓️</div>
+                    <h3 class="card-title">Data da coleta</h3>
+                    <p id="dataColeta" class="card-desc"></p>
+                    <p class="card-desc">Dia da Semana: <span id="diaSemana"></span></p>
+                </div>
+
+                <div class="card card-large">
+                    <div class="card-icon">📍</div>
+                    <h3 class="card-title">Endereço da coleta</h3>
+                    <p id="enderecoColeta" class="card-desc"></p>
+                    <a id="maps" target="_blank" class="card-desc" href="">Abrir no maps</a>
+                </div>
+
+                <div class="card card-medium">
+                    <div class="card-icon">💬</div>
+                    <h3 class="card-title">Comentários</h3>
+                    <p id="comentarios" class="card-desc"></p>
+                </div>
+
+                <div class="card card-small">
+                    <div class="card-icon">🏭</div>
+                    <h3 class="card-title">Fabricante</h3>
+                    <p id="fabricante" class="card-desc"></p>
+                </div>
+
+                <div class="card card-small">
+                    <div class="card-icon">🏷️</div>
+                    <h3 class="card-title">Modelo</h3>
+                    <p id="modelo" class="card-desc"></p>
+                </div>
+
+                <div class="card card-small">
+                    <div class="card-icon">⚡</div>
+                    <h3 class="card-title">Potência (W)</h3>
+                    <p id="potencia" class="card-desc"></p>
+                </div>
+
+                <div class="card card-small">
+                    <div class="card-icon">🛠️</div>
+                    <h3 class="card-title">Data de Fabricação</h3>
+                    <p id="fabricacao" class="card-desc"></p>
+                </div>
+
+                <div class="card card-small">
+                    <div class="card-icon">🔧</div>
+                    <h3 class="card-title">Data de Instalação</h3>
+                    <p id="instalacao" class="card-desc"></p>
+                </div>
+
+                <div class="card card-small">
+                    <div class="card-icon">🔢</div>
+                    <h3 class="card-title">Quantidade de Células</h3>
+                    <p id="celulas" class="card-desc"></p>
+                </div>
+
+                <div class="card card-small">
+                    <div class="card-icon">🌞</div>
+                    <h3 class="card-title">Tipo da Placa</h3>
+                    <p id="tipo" class="card-desc"></p>
+                </div>
+
+                <div class="card card-small">
+                    <div class="card-icon">🛑</div>
+                    <h3 class="card-title">Estado da Placa</h3>
+                    <p id="funcionamento" class="card-desc"></p>
+                </div>
+
+                <div class="card card-small">
+                    <div class="card-icon">🧱</div>
+                    <h3 class="card-title">Condições da Placa</h3>
+                    <p id="condicoes" class="card-desc"></p>
+                </div>
+
+                <div class="card card-small">
+                    <div class="card-icon">♻️</div>
+                    <h3 class="card-title">Motivo para Descarte</h3>
+                    <p id="motivo" class="card-desc"></p>
+                </div>
+
+                <div class="card card-small">
+                    <div class="card-icon">🔁</div>
+                    <h3 class="card-title">Sistema</h3>
+                    <p id="inversor" class="card-desc card-sistema"></p>
+                    <p id="sistema" class="card-desc card-sistema"></p>
+                </div>
+
+                <div class="card card-small">
+                    <div class="card-icon">🔌</div>
+                    <h3 class="card-title">Tensão (V)</h3>
+                    <p id="tensao" class="card-desc"></p>
+                </div>
+
+                <div class="card card-small">
+                    <div class="card-icon">🔋</div>
+                    <h3 class="card-title">Corrente (I)</h3>
+                    <p id="corrente" class="card-desc"></p>
+                </div>
+
+                <div class="card card-small">
+                    <div class="card-icon">📈</div>
+                    <h3 class="card-title">Eficiência</h3>
+                    <p id="eficiencia" class="card-desc"></p>
+                </div>
+
+                <div class="card card-small">
+                    <div class="card-icon">📐</div>
+                    <h3 class="card-title">Dimensões</h3>
+                    <p id="dimensao" class="card-desc"><span id="espaco"></span><span id="calculada"></span></p>
+                </div>
+
+                <div class="card card-small">
+                    <div class="card-icon">⚖️</div>
+                    <h3 class="card-title">Peso estimado</h3>
+                    <p id="peso" class="card-desc"></p>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <!-- Mensagem de falta de cadastro-->
+        <div id="semCadastro">
+            <img src="{% static 'resolar/imgs/SVGs/Vazio.svg' %}" alt="">
+            <h1>Ainda <span>não</span> há cadastros...</h1>
+            <a href="{% url 'reciclar' %}">Faça um agora!</a>
+        </div>
+        {% endif %}
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js" crossorigin="anonymous"></script>
+<script src="{% static 'resolar/scripts/dashboard.js' %}"></script>
+<script>
+twemoji.parse(document.getElementById('container'), {
+      folder: 'svg',
+      ext: '.svg',
+      base: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/'
+});
+</script>
+</body>
+</html>
+
+
+

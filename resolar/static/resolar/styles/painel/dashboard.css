@@ -1,0 +1,390 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* Configurações Globais */
+
+* {
+    margin: 0px;
+    padding: 0px;
+
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
+#indisponivel {
+    height: 100dvh;
+    padding: 0 15px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    display: none;
+}
+
+body {
+    background-color: rgba(144, 238, 144, 0.171);
+}
+
+/* Container */
+
+#container {
+    width: 100%;
+    height: 100dvh;
+    display: flex;
+}
+
+/* Menu (geral) */
+
+#menu {
+    background-color: white;
+    height: 100dvh;
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    transition: width, 0.3s;
+
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
+}
+
+#menu.closed {
+    width: 70px;
+}
+
+/* Botão de abrir menu */
+
+#menuToggle {
+    width: 100%;
+}
+
+#menuContent {
+    width: 100%;
+    display: flex;
+}
+
+#menuContent {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    padding-bottom: 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: #2C2C2C;
+}
+
+#menuContent:hover {
+    color: #4CAF4F;
+}
+
+#menuContent:hover i {
+    color: #4CAF4F;
+}
+
+#menuContent i {
+    transition: all 0.3s;
+}
+
+#menuContent i {
+    font-size: 25px;
+    flex-shrink: 0;
+    color: #2C2C2C;
+}
+
+#menuContent span {
+    margin-left: 15px;
+    font-size: 15px;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+#menu.closed #menuContent span {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#menuIcon {
+    font-size: 25px;
+    transition: rotate 0.3s;
+}
+
+#menu.closed #menuIcon {
+    rotate: 90deg;
+}
+
+/* Lista de painéis cadastrados */
+
+#menuItems {
+    height: calc(100% - 135px);
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    padding: 10px 0px;
+    padding-top: 0px;
+    color: #2C2C2C;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menuItem {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    cursor: pointer;
+    text-decoration: none;
+    
+    color: #2C2C2C;
+    white-space: wrap;
+    gap: 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.menuItem.selected {
+    background-color: #4CAF4F;
+    font-weight: 600;
+    color: white;
+}
+
+.menuItem.selected:hover {
+    color: white;
+}
+
+.menuItem:hover {
+    color: #4CAF4F;
+}
+
+.menuItem i {
+    width: 30px;
+    font-size: 20px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.menuItem p {
+    margin-left: 15px;
+    font-size: 15px;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+#menu.closed .menuItem p {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#adicionar {
+    text-align: center;
+    opacity: 1;
+    transition: opacity 0.3s;
+
+    padding: 20px;
+}
+
+#menu.closed #adicionar {
+    opacity: 0;
+}
+
+#adicionar img {
+    height: auto;
+    max-width: 200px;
+}
+
+#adicionar span a {
+    color: #4CAF4F;
+}
+
+/* Botão para voltar para a homepage */
+
+#menuHome {
+    border-top: 2px #4CAF4F solid;
+    width: 100%;
+}
+
+#home, #user {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    cursor: pointer;
+
+    text-decoration: none;
+    color: #2C2C2C;
+    transition: all 0.3s;
+}
+
+#home i, #user i {
+    font-size: 25px;
+    flex-shrink: 0;
+}
+
+#home:hover, #user:hover {
+    color: #4CAF4F;
+}
+
+#home span, #user span {
+    margin-left: 15px;
+    font-size: 15px;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+#menu.closed #home span, #menu.closed #user span {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#user {
+    padding-bottom: 5px;
+}
+
+#erro {
+    width: 100%;
+    text-align: center;
+}
+
+/* Cards */
+
+#informacoes {
+    width: calc(100% - 70px);
+    padding: 30px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#header {
+    padding: 20px;
+    padding-top: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#creditosContent {
+    padding: 10px 20px;
+    background-color: #4CAF4F;
+    color: white;
+    border-radius: 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+#creditosContent:hover {
+    scale: 102%;
+}
+
+#qtdCreditos {
+    font-weight: 700;
+}
+
+#porcentagem {
+    font-size: 12px;
+}
+
+#bentoGrid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+}
+
+.card {
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+    padding: 30px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s;
+}
+
+.card:hover {
+    scale: 102%;
+    box-shadow: 0 2px 10px #2c2c2ca9;
+}
+
+.card-large {
+    grid-column: span 3;
+    grid-row: span 3;
+}
+
+.card-medium {
+    grid-column: span 2;
+    padding: 20px;
+}
+
+.card-small {
+    grid-column: span 1;
+}
+
+.card-icon {
+    font-size: 35px;
+}
+
+.card-desc {
+    font-size: 16px;
+}
+
+.card-sistema {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 20px;
+    line-break: anywhere;
+}
+
+img.emoji {
+    height: 1.2em;
+    width: 1.2em;
+    margin: 0 0.15em;
+    vertical-align: -0.2em;
+    display: inline-block;
+}
+
+/* Sem cadastro */
+
+#semCadastro {
+    width: calc(100% - 70px);
+    padding: 30px;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#semCadastro img {
+    width: 45%;
+    max-width: 450px;
+}
+
+#semCadastro h1 {
+    margin-top: 20px;
+    color: #2C2C2C;
+    font-weight: 600;
+}
+
+#semCadastro h1 > span {
+    color: #4CAF4F;
+}
+
+#semCadastro a {
+    margin-top: 5px;
+    color: #4CAF4F;
+    font-size: 18px;
+}

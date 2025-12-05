@@ -1,0 +1,235 @@
+@media screen and (max-width: 260px) {
+    #container {
+        display: none;
+    }
+    #indisponivel {
+        display: flex !important;
+    }
+}
+
+@media screen and (min-width: 260px) and (max-width: 400px) {
+    /* Menu */
+
+    #menu {
+        width: 70px;
+        z-index: 20;
+        position: fixed;
+        left: 0;
+        top: 0;
+        transition: width 0.3s ease;
+    }
+    
+    #menu:not(.closed) {
+        width: 100%;
+    }
+
+    #menuContent:hover {
+        color: #2C2C2C;
+    }
+
+    #menuContent:hover i {
+        color: #2C2C2C;
+    }
+
+    .menuItem:hover {
+        color: #2C2C2C;
+    }
+
+    #home:hover, #user:hover {
+        color: #2C2C2C;
+    }
+
+    #adicionar img {
+        max-width: 250px;
+    }
+
+    /* Cards */
+    
+    #informacoes {
+        width: calc(100% - 70px);
+        margin-left: 70px;
+    }
+
+    #header {
+        flex-direction: column;
+        padding: 0px;
+        gap: 20px;
+    }
+
+    #creditosContent {
+        width: 100%;
+        text-align: center;
+        flex-direction: column;
+        gap: 0px;
+        margin-bottom: 20px;
+    }
+    
+    #painelAtual {
+        font-size: 28px;
+    }
+
+    #bentoGrid {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Sem cadastro */
+
+    #semCadastro {
+        padding: 10px;
+    }
+
+    #semCadastro img {
+        width: 80%;
+        min-width: 160px;
+    }
+
+    #semCadastro h1 {
+        padding: 0px;
+        font-size: 24px;
+    }
+
+    #semCadastro a {
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 400px) and (max-width: 660px) {
+    /* Menu */
+
+    #menu {
+        width: 70px;
+        z-index: 20;
+        position: fixed;
+        left: 0;
+        top: 0;
+        transition: width 0.3s ease;
+    }
+    
+    #menu:not(.closed) {
+        width: 100%;
+    }
+
+    #menuContent:hover {
+        color: #2C2C2C;
+    }
+
+    #menuContent:hover i {
+        color: #2C2C2C;
+    }
+
+    .menuItem:hover {
+        color: #2C2C2C;
+    }
+
+    #home:hover, #user:hover {
+        color: #2C2C2C;
+    }
+
+    #adicionar img {
+        max-width: 250px;
+    }
+
+    /* Cards */
+    
+    #informacoes {
+        width: calc(100% - 70px);
+        margin-left: 70px;
+    }
+
+    #header {
+        flex-direction: column;
+        padding: 0px;
+        gap: 20px;
+    }
+
+    #creditosContent {
+        width: 100%;
+        text-align: center;
+        flex-direction: column;
+        gap: 0px;
+        margin-bottom: 20px;
+    }
+    
+    #bentoGrid {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Sem cadastro */
+
+    #semCadastro {
+        padding: 10px;
+    }
+
+    #semCadastro img {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    #semCadastro h1 {
+        padding: 10px;
+        font-size: 28px;
+    }
+}
+
+@media screen and (min-width: 660px) and (max-width: 1100px) {
+    /* Menu */
+
+    #menu {
+        width: 70px;
+        z-index: 20;
+        position: fixed;
+        left: 0;
+        top: 0;
+        transition: width 0.3s;
+        max-width: 400px;
+    }
+    
+    #menu:not(.closed) {
+        width: 60%;
+    }
+    
+    #menuContent:hover {
+        color: #2C2C2C;
+    }
+
+    #menuContent:hover i {
+        color: #2C2C2C;
+    }
+
+    .menuItem:hover {
+        color: #2C2C2C;
+    }
+
+    #home:hover, #user:hover {
+        color: #2C2C2C;
+    }
+
+    #adicionar img {
+        max-width: 250px;
+    }
+
+    /* Cards */
+    
+    #informacoes {
+        width: calc(100% - 70px);
+        margin-left: 70px;
+    }
+    
+    #bentoGrid {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Sem cadastro */
+
+    #semCadastro {
+        padding: 10px;
+    }
+
+    #semCadastro img {
+        width: 60%;
+        max-width: 350px;
+    }
+}

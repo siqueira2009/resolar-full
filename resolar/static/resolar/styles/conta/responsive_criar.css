@@ -1,0 +1,200 @@
+@media only screen and (min-width: 0px) and (max-width: 260px) {
+
+    /* Tela de indisponibilidade */
+
+    body .container {
+        display: none !important;
+    }
+
+    #indisponivel {
+        display: block;
+    }
+}
+
+@media only screen and (min-width: 260px) and (max-width: 300px) {
+    
+    /* Gerais */
+
+    #indisponivel {
+        display: none;
+    }
+
+    /* Form Content */
+
+    .container {
+        width: 90dvw;
+        flex-direction: column;
+        gap: 30px;
+
+        overflow-y: scroll;
+    }
+
+    .esquerda, .direita {
+        width: 100%;
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+
+    .input ~ .label {
+        font-size: 14px;
+        transform: translateY(17px);
+    }
+
+    .input:focus ~ .label, .input:valid ~ .label {
+        transform: translateY(-50%) scale(0.8);
+        background-color: #fff;
+        padding: 0 .2em;
+        color: #4caf4f;
+        font-size: 16px;
+    }
+
+    .esquerda {
+        padding-bottom: 0px;
+    }
+
+    /* Form Esquerda */
+
+
+    .esquerda p {
+        font-size: 30px;
+    }
+
+    .esquerda h3 {
+        margin-top: 10px;
+        font-size: 16px;
+    }
+
+    .esquerda img {
+        max-width: 100px;
+    }
+
+    /* Form Direita */
+
+    .buttons {
+        flex-direction: column;
+        gap: 20px;
+        padding-bottom: 40px;
+    }
+
+    .buttons h3, .buttons a {
+        font-size: 17px;
+    }
+
+    .eye {
+        right: 10px;
+    }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 900px) {
+    /* Gerais */
+
+    #indisponivel {
+        display: none;
+    }
+
+    /* Form Content */
+
+    .container {
+        width: 80dvw;
+        flex-direction: column;
+        gap: 30px;
+        
+        overflow-y: scroll;
+    }
+
+    .esquerda, .direita {
+        width: 100%;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .input ~ .label {
+        font-size: 14px;
+        transform: translateY(17px);
+    }
+
+    .input:focus ~ .label, .input:valid ~ .label {
+        transform: translateY(-50%) scale(0.8);
+        background-color: #fff;
+        padding: 0 .2em;
+        color: #4caf4f;
+        font-size: 16px;
+    }
+
+    .esquerda {
+        padding-bottom: 0px;
+    }
+
+    /* Form Esquerda */
+
+
+    .esquerda p {
+        font-size: 30px;
+    }
+
+    .esquerda h3 {
+        margin-top: 10px;
+        font-size: 16px;
+    }
+
+    .esquerda img {
+        max-width: 100px;
+    }
+
+    /* Form Direita */
+
+    .buttons {
+        flex-direction: column;
+        gap: 20px;
+        padding-bottom: 40px;
+    }
+
+    .buttons h3, .buttons a {
+        font-size: 17px;
+    }
+}
+
+@media only screen and (min-width: 901px) {
+
+    /* Gerais */
+
+    #indisponivel {
+        display: none;
+    }
+
+    /* Form Content */
+
+    .container {
+        width: 75dvw;
+        flex-direction: line;
+    }
+
+    /* Form Esquerda */
+
+    .esquerda, .direita {
+        width: 50%;
+    }
+
+    .esquerda p {
+        font-size: 35px;
+    }
+
+    .esquerda h3 {
+        margin-top: 10px;
+        font-size: 16px;
+    }
+
+    .esquerda img {
+        max-width: 100px;
+    }
+
+    .direita {
+        overflow-y: scroll;
+    }
+
+    /* Form Direita */
+
+    .buttons h3, .buttons a {
+        font-size: 17px;
+    }
+}

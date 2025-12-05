@@ -1,0 +1,279 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Painéis</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'resolar/imgs/LogoSemNome.png' %}">
+    <link rel="stylesheet" href="{% static 'resolar/styles/painel/cadastro.css' %}">
+    <link rel="stylesheet" href="{% static 'resolar/styles/painel/responsive_cadastro.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- Tela de indisponibilidade para telas muito pequenas -->
+    <div id="indisponivel">
+        <h2>Site indisponível para sua resolução de tela</h2>
+        <p>Lamentamos por isto! &#128546;</p>
+    </div>
+
+    <!-- Navegação -->
+    <header>
+        <nav>
+            <span class="opt atual" id="primeiro" onclick="mudarEtapa(0)">
+                <i class="fa-solid fa-solar-panel"></i>
+                <p>Informações Técnicas #1</p>
+                <p class="indResp">1</p>
+            </span>
+
+            <span class="opt" onclick="mudarEtapa(1)">
+                <i class="fa-solid fa-solar-panel"></i>
+                <p>Informações Técnicas #2</p>
+                <p class="indResp">2</p>
+            </span>
+
+            <span class="opt" onclick="mudarEtapa(2)">
+                <i class="fa-solid fa-solar-panel"></i>
+                <p>Informações Técnicas #3</p>
+                <p class="indResp">3</p>
+            </span>
+
+            <span class="opt" id="terceiro" onclick="mudarEtapa(3)">
+                <i class="fa-solid fa-calendar-days"></i>
+                <p>Agendamento</p>
+                <p class="indResp">1</p>
+            </span>
+        </nav>
+    </header>
+
+    <!-- Barra de progressão -->
+    <div class="barras">
+        <div class="barra" id="barraVerde"></div>
+    </div>
+
+    <!-- Formulário -->
+
+    <form action="{% url 'reciclar' %}" id="formulario" method="POST"> {% csrf_token %}
+        <div id="info1" class="etapa" style="display: flex;">
+            <h1>Informações <span>Técnicas P.1</span></h1>
+
+            <div class="inputGroup">
+                <input id="marca" required="" type="text" name="marca" class="input">
+                <label for="marca" class="label">Fabricante</label>
+            </div>
+
+            <div class="inputGroup">
+                <input id="modelo" required="" type="text" name="modelo" class="input">
+                <label for="modelo" class="label">Modelo</label>
+            </div>
+
+            <div class="inputGroup">
+                <input id="potencia" required="" type="text" name="potencia" class="input typeNumber">
+                <label for="potencia" class="label">Potência (W)</label>
+            </div>
+
+            <div class="inputGroup">
+                <input value="" id="dataFabr" required type="date" name="dataFabr" max="2025-10-20" class="input inputUp typeDate">
+                <label for="dataFabr" class="label">Data de Fabricação</label>
+            </div>
+
+            <div class="inputGroup">
+                <input value="" id="dataInst" required type="date" name="dataInst" max="2025-10-20" class="input inputUp typeDate">
+                <label for="dataInst" class="label">Data de Instalação</label>
+            </div>
+
+            <div class="inputGroup">
+                <input value="" id="qtdCel" required="" type="text" name="qtdCel" class="input typeNumber">
+                <label for="qtdCel" class="label">Quantidade de Células</label>
+            </div>
+
+            {% if erro_campos %}
+                    <p style="color: red; margin-top: 10px;">{{ erro_campos }}</p>
+            {% endif %}
+
+            <div class="btns">
+                <p class="indexResp">1/4</p>
+                <a class="button-homepage" type="button" href="{% url 'inicio' %}"><i class="fa-solid fa-house"></i>Início</a>
+                <p class="index">1/4</p>
+                <button class="button avancar" type="button" onclick="mudarEtapa(1)">Avançar<i class="fa-solid fa-angle-right"></i></button>
+            </div>
+        </div>
+
+        <div id="info2" class="etapa" style="display: none;">
+            <h1>Informações <span>Técnicas P.2</span></h1>
+
+            <div class="inputGroup">
+                <select id="tipo" required="" name="tipo" class="input inputUp">
+                    <option class="optDesa" value="" selected hidden>Selecione uma opção</option>
+                    <option value="Monocristalino">Monocristalino</option>
+                    <option value="Policristalino">Policristalino</option>
+                    <option value="Híbrido">Híbrido</option>
+                    <option value="Filme Fino">Filme Fino (a-Si, CdTe, CIGS)</option>
+                </select>
+                <label for="tipo" class="label">Tipo da Placa</label>
+            </div>
+
+            <div class="inputGroup">
+                <select id="estado" required="" name="estado" class="input inputUp">
+                    <option class="optDesa" value="" selected hidden>Selecione uma opção</option>
+                    <option value="Funciona">Funciona</option>
+                    <option value="Parcialmente">Funciona parcialmente</option>
+                    <option value="Não funciona">Não funciona</option>
+                </select>
+                <label for="estado" class="label">Estado</label>
+            </div>
+
+            <div class="inputGroup">
+                <select id="condicao" required="" name="condicao" class="input inputUp">
+                    <option class="optDesa" value="" selected hidden>Selecione uma opção</option>
+                    <option value="Inteiro">Inteiro</option>
+                    <option value="Trincado">Trincado</option>
+                    <option value="Quebrado">Quebrado</option>
+                </select>
+                <label for="condicao" class="label">Condições</label>
+            </div>
+
+            <div class="inputGroup">
+                <select id="motivo" required="" name="motivo" class="input inputUp">
+                    <option class="optDesa" value="" selected hidden>Selecione uma opção</option>
+                    <option value="Quebra">Quebra</option>
+                    <option value="Fim da Vida Útil">Fim da vida útil</option>
+                    <option value="Troca">Troca</option>
+                    <option value="Desinstalação">Desinstalação</option>
+                </select>
+                <label for="motivo" class="label">Motivo para descarte</label>
+            </div>
+
+            <div class="inputGroup">
+                <select id="inversor" required="" name="inversor" class="input inputUp">
+                    <option class="optDesa" value="" selected hidden>Selecione uma opção</option>
+                    <option value="String">String</option>
+                    <option value="Microinversor">Microinversor</option>
+                    <option value="Central">Central</option>
+                </select>
+                <label for="inversor" class="label">Inversor do Sistema</label>
+            </div>
+
+            <div class="inputGroup">
+                <select id="sistema" required="" name="sistema" class="input inputUp">
+                    <option class="optDesa" value="" selected hidden>Selecione uma opção</option>
+                    <option value="On-Grid">On-Grid</option>
+                    <option value="Off-Grid">Off-Grid</option>
+                    <option value="Híbrido">Híbrido</option>
+                </select>
+                <label for="sistema" class="label">Tipo do Sistema</label>
+            </div>
+
+            <div class="btns">
+                <p class="indexResp">2/4</p>
+                <button class="button" type="button" onclick="mudarEtapa(0)"><i class="fa-solid fa-angle-left"></i>Retornar</button>
+                <p class="index">2/4</p>
+                <button class="button" type="button" onclick="mudarEtapa(2)">Avançar<i class="fa-solid fa-angle-right"></i></button>
+            </div>
+        </div>
+
+        <div id="info3" class="etapa" style="display: none;">
+            <h1>Informações <span>Técnicas P.3</span></h1>
+
+            <div class="inputGroup">
+                <input id="tensao" required="" type="text" name="tensao" class="input typeNumber">
+                <label for="tensao" class="label">Tensão (V)</label>
+            </div>
+
+            <div class="inputGroup">
+                <input id="corrente" required="" type="text" name="corrente" class="input typeNumber">
+                <label for="corrente" class="label">Corrente (I)</label>
+            </div>
+
+            <div class="inputGroup">
+                <input id="eficiencia" required="" type="text" name="eficiencia" class="input typeNumber">
+                <label for="eficiencia" class="label">Eficiência (%)</label>
+            </div>
+
+            <div class="inputGroup">
+                <input id="peso" required="" type="text" name="peso" class="input typeNumber">
+                <label for="peso" class="label">Peso Estimado (kg)</label>
+            </div>
+
+            <div id="dimensao">
+                <div class="inputGroup" id="comp">
+                    <input id="comprimento" required="" type="text" name="comp" class="input typeNumber">
+                    <label for="comp" class="label">Comprimento (m)</label>
+                    <label for="comp" class="label labelResp">Comp</label>
+                </div>
+                
+                <div class="inputGroup" id="larg">
+                    <input id="largura" required="" type="text" name="larg" class="input typeNumber">
+                    <label for="larg" class="label">Largura (m)</label>
+                    <label for="larg" class="label labelResp">Larg.</label>
+                </div>
+
+                <div class="inputGroup" id="alt">
+                    <input id="altura" required="" type="text" name="altura" class="input typeNumber">
+                    <label for="alt" class="label">Altura (m)</label>
+                    <label for="alt" class="label labelResp">Alt.</label>
+                </div>
+            </div>
+
+            <div class="inputGroup">
+                <input id="comentarios" required="" type="text" name="comentarios" class="input">
+                <label for="comentarios" class="label">Comentários</label>
+            </div>
+
+            <div class="btns">
+                <p class="indexResp">3/4</p>
+                <button class="button" type="button" onclick="mudarEtapa(1)"><i class="fa-solid fa-angle-left"></i>Retornar</button>
+                <p class="index">3/4</p>
+                <button class="button avancar" type="button" onclick="mudarEtapa(3)">Avançar<i class="fa-solid fa-angle-right"></i></button>
+            </div>
+        </div>
+
+        <div id="agenda" class="etapa" style="display: none;">
+            <h1><span>Agendar</span> coleta</h1>
+            <div id="calendario">
+                <div id="mes">
+                    <ul>
+                        <li id="prev"><i class="fa-solid fa-angle-left"></i></li>
+                        <li id="mesInfo">
+                            <span id="mesAtual">Setembro</span>
+                            <span id="anoAtual">2025</span>
+                        </li>
+                        <li id="next"><i class="fa-solid fa-angle-right"></i></li>
+                    </ul>
+                </div>
+
+                <div id="semana">
+                    <ul>
+                        <li>D</li>
+                        <li>S</li>
+                        <li>T</li>
+                        <li>Q</li>
+                        <li>Q</li>
+                        <li>S</li>
+                        <li>S</li>
+                    </ul>
+                </div>
+
+                <div id="dias"></div>
+
+                <input name="dataColeta" id="dataColeta" type="text" class="input">
+                <div class="inputGroup" style="width: 100%;">
+                    <input id="endereco" required="" type="text" name="endereco" class="input">
+                    <label for="endereco" class="label">Endereço de Coleta</label>
+                </div>
+                <h3 id="resumoColeta">A sua coleta será agendada para dia <span id="data"></span> no endereço <span id="endereço"></span></h3>
+
+                <div class="btns">
+                    <p class="indexResp">4/4</p>
+                    <button class="button" type="button" onclick="mudarEtapa(1)"><i class="fa-solid fa-angle-left"></i>Retornar</button>
+                    <p class="index">4/4</p>
+                    <button id="concluir" type="submit">Concluir<i class="fa-solid fa-check"></i></button>
+                </div>
+            </div>
+
+        </div>
+    </form>
+
+    <script src="{% static 'resolar/scripts/cadastro.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,989 @@
+@media only screen and (min-width: 0px) and (max-width: 260px) {
+    
+    /* Indisponibilidade */
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100dvh;
+    }
+
+    body > *:not(#indisponivel) {
+        display: none;
+    }
+    
+    #indisponivel {
+        display: block;
+    }
+}
+
+@media only screen and (min-width: 260px) and (max-width: 320px) {
+
+    /* Gerais */
+
+    .title {
+        font-size: 30px;
+    }
+
+    /* Indisponibilidade */
+    #indisponivel {
+        display: none;
+    }
+
+    /* Header */
+    header {
+        padding: 10px 35px;
+    }
+
+    #navPC {
+        display: none;
+    }
+
+    #menuResp {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Hero Section */
+
+    #heroSection {
+        padding: 50px 40px;
+    }
+    
+    #heroText h1 {
+        font-size: 45px;
+        line-height: 50px;
+    }
+
+    #heroImg {
+        display:none;
+    }
+
+    /* Propósito */
+
+    #proposito {
+        padding: 50px 40px;
+        text-align: center;
+    }
+
+    #propContent {
+        flex-direction: column;
+        gap: 0px;
+    }
+
+    #propDesc, #propText, #propImg, #processoInfo, #prop1400 {
+        display: none;
+    }
+
+    /* Funcionamento */
+
+    #funcDesc {
+        display: none;
+    }
+
+    #funcionamento {
+        padding: 50px 40px;
+        text-align: center;
+    }
+
+    #funcOpts {
+        display: none;
+    }
+
+    #funcText {
+        display: none;
+    }
+    
+    #funcOptsResp {
+        display: flex;
+    }
+
+    .optionResp {
+        width: auto !important;
+        font-size: 10px;
+    }
+    
+    #funcTextResp {
+        font-size: 16px;
+    }
+
+    #funcInfo {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+        max-width: 100%;
+    }
+    
+    #funcImg {
+        max-width: 410px;
+        order: 1
+    }
+
+    /* Dúvidas */
+
+    #duvidas {
+        padding: 50px 40px;
+        text-align: center;
+    }
+
+    #duvidasDesc {
+        display: none;
+    }
+
+    #duvidasImg {
+        display: none;
+    }
+
+    #duvidasPerguntas {
+        width: 100%;
+    }
+
+    #duvidasPerguntas h3 {
+        padding: 15px;
+        margin-top: 15px;
+        font-weight: 500;
+        font-size: 18px;
+    }
+
+    #duvidasPerguntas h3 > .lupinha {
+        margin-right: 15px;
+    }
+
+    #duvidasPerguntas h3 > .seta-abrir {
+        display: none;
+    }
+
+    /* Reciclar */
+
+    #reciclar {
+        flex-direction: column;
+        padding: 50px 40px;
+    }
+
+    #reciclarText, #reciclarImg {
+        width: 100%;
+    }
+
+    #reciclarImg img {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    /* Footer */
+
+    footer {
+        padding: 25px 40px;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    #footerLeft, #footerMid, #footerRight {
+        width: 100%;
+    }
+
+    #footerMid {
+        display: block;
+    }
+
+    .footerContent {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    #footerLeft img {
+        width: 100%;
+        max-width: 292px;
+    }
+
+    #footerRight img, #footerRight img {
+        width: 100%;
+        max-width: 292px;
+    }
+
+    .nada {
+        display: none;
+    }
+
+    .listTitleSecond {
+        margin-top: 30px;
+    }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 800px) {
+
+    /* Gerais */
+
+    .title {
+        font-size: 30px;
+    }
+
+    /* Indisponibilidade */
+    #indisponivel {
+        display: none;
+    }
+
+    /* Header */
+    header {
+        padding: 10px 35px;
+    }
+
+    #navPC {
+        display: none;
+    }
+
+    #menuResp {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Hero Section */
+
+    #heroSection {
+        padding: 50px 40px;
+    }
+    
+    #heroText h1 {
+        font-size: 45px;
+        line-height: 50px;
+    }
+
+    #heroImg {
+        display:none;
+    }
+
+    /* Propósito */
+
+    #proposito {
+        padding: 50px 40px;
+        text-align: center;
+    }
+
+    #propContent {
+        flex-direction: column;
+        gap: 0px;
+    }
+
+    #propDesc, #propText, #propImg, #processoInfo, #prop1400 {
+        display: none;
+    }
+
+    /* Funcionamento */
+
+    #funcDesc {
+        display: none;
+    }
+
+    #funcionamento {
+        padding: 50px 40px;
+        text-align: center;
+    }
+
+    #funcOpts {
+        display: none;
+    }
+
+    #funcText {
+        display: none;
+    }
+    
+    #funcOptsResp {
+        display: flex;
+    }
+    
+    #funcTextResp {
+        font-size: 16px;
+    }
+
+    #funcInfo {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+        max-width: 100%;
+    }
+    
+    #funcImg {
+        max-width: 410px;
+        order: 1
+    }
+
+    /* Dúvidas */
+
+    #duvidas {
+        padding: 50px 40px;
+        text-align: center;
+    }
+
+    #duvidasDesc {
+        display: none;
+    }
+
+    #duvidasImg {
+        display: none;
+    }
+
+    #duvidasPerguntas {
+        width: 100%;
+    }
+
+    #duvidasPerguntas h3 {
+        padding: 15px;
+        margin-top: 15px;
+        font-weight: 500;
+        font-size: 18px;
+    }
+
+    #duvidasPerguntas h3 > .lupinha {
+        margin-right: 15px;
+    }
+
+    #duvidasPerguntas h3 > .seta-abrir {
+        display: none;
+    }
+
+    /* Reciclar */
+
+    #reciclar {
+        flex-direction: column;
+        padding: 50px 40px;
+    }
+
+    #reciclarText, #reciclarImg {
+        width: 100%;
+    }
+
+    #reciclarImg img {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    /* Footer */
+
+    footer {
+        padding: 25px 40px;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    #footerLeft, #footerMid, #footerRight {
+        width: 100%;
+    }
+
+    #footerMid {
+        display: block;
+    }
+
+    .footerContent {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    #footerLeft img {
+        width: 100%;
+        max-width: 292px;
+    }
+
+    #footerRight img, #footerRight img {
+        width: 100%;
+        max-width: 292px;
+    }
+
+    .nada {
+        display: none;
+    }
+
+    .listTitleSecond {
+        margin-top: 30px;
+    }
+
+    #footerMid ul {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 801px) and (max-width: 1100px) {
+
+    /* Gerais */
+
+    .title {
+        font-size: 30px;
+    }
+
+    /* Indisponibilidade */
+    #indisponivel {
+        display: none;
+    }
+
+    /* Header */
+    header {
+        padding: 10px 35px;
+    }
+
+    #navPC {
+        display: none;
+    }
+
+    #menuResp {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Hero Section */
+
+    #heroSection {
+        padding: 50px 40px;
+    }
+    
+    #heroText h1 {
+        font-size: 45px;
+        line-height: 50px;
+    }
+
+    #heroImg {
+        display:none;
+    }
+
+    /* Propósito */
+
+    #proposito {
+        padding: 50px 40px;
+        text-align: center;
+    }
+
+    #propContent {
+        flex-direction: column;
+        gap: 0px;
+    }
+
+    #propDesc, #propText, #propImg, #processoInfo, #prop1400 {
+        display: none;
+    }
+
+    /* Funcionamento */
+
+    #funcDesc, #funcOptsResp, #funcTextResp {
+        display: none;
+    }
+
+    #funcionamento {
+        padding: 50px 40px;
+        text-align: center;
+    }
+
+    .option {
+        font-size: 14px;
+    }
+
+    #funcInfo {
+        gap: 25px;
+        padding: 25px;
+        max-width: 1000px;
+    }
+    
+    #funcImg {
+        max-width: 350px;
+    }
+    
+    #funcText {
+        font-size: 15px;
+    }
+
+    /* Dúvidas */   
+    #duvidas {
+        padding: 50px 40px;
+    }
+
+    #duvidasImg img {
+        width: 90%;
+    }
+
+    #duvidasImg {
+        display: none;
+    }
+
+    #duvidasPerguntas {
+        width: 100%;
+    }
+    
+    #duvidasPerguntas h3 {
+        padding: 10px;
+        margin-top: 15px;
+        font-weight: 500;
+    }
+
+    #duvidasPerguntas h3 > .lupinha {
+        margin-right: 15px;
+    }
+
+    #duvidasPerguntas h3 > .seta-abrir {
+        font-size: 22px;
+    }
+
+    /* Reciclar */
+
+    #reciclar {
+        padding: 50px 80px;
+    }
+
+    /* Footer */
+
+    footer {
+        padding: 25px 40px;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    #footerLeft, #footerMid, #footerRight {
+        width: 100%;
+    }
+
+    #footerMid {
+        display: block;
+    }
+
+    .footerContent {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    #footerLeft img {
+        width: 100%;
+        max-width: 292px;
+    }
+
+    #footerRight img, #footerRight img {
+        width: 100%;
+        max-width: 292px;
+    }
+
+    .nada {
+        display: none;
+    }
+
+    .listTitleSecond {
+        margin-top: 30px;
+    }
+
+    #footerMid ul {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 1100px) and (max-width: 1400px) {
+
+    /* Geral */
+
+    .title {
+        font-size: 40px;
+    }
+
+    /* Menu e Indisponibilidade */
+    #menu, #indisponivel {
+        display: none;
+    }
+
+    /* Header */
+    header {
+        padding: 10px 75px;
+    }
+
+    /* Hero Section */
+    #heroSection {
+        padding: 50px 0px 50px 80px;
+    }
+
+    #heroText h1 {
+        font-size: 60px;
+        line-height: 60px;
+    }
+
+    /* Propósito */
+
+    #propText, #propImg, #processoInfo {
+        display: none;
+    }
+
+    #propTextResp, #propImg {
+        width: 100%;
+    }
+
+    #propContent {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    #proposito {
+        padding: 50px 80px;
+    }
+
+    #propText {
+        font-size: 18px;
+    }
+
+    /* Funcionamento */
+
+    #funcionamento {
+        padding: 50px 80px;
+    }
+
+    .option {
+        font-size: 17px;
+    }
+
+    #funcOptsResp, #funcTextResp {
+        display: none;
+    }
+
+    #funcInfo {
+        gap: 35px;
+        padding: 35px;
+        max-width: 1300px;
+    }
+    
+    #funcImg {
+        max-width: 400px;
+    }
+    
+    #funcText {
+        font-size: 18px;
+    }
+
+    /* Dúvidas */
+
+    #duvidas {
+        padding: 50px 80px;
+    }
+
+    #duvidasImg img {
+        width: 100%;
+        max-width: 490px;
+    }
+
+    #duvidasPerguntas h3 {
+        padding: 10px;
+        margin-top: 15px;
+        font-weight: 500;
+    }
+
+    #duvidasPerguntas h3 > .lupinha {
+        margin-right: 15px;
+    }
+
+    #duvidasPerguntas h3 > .seta-abrir {
+        font-size: 22px;
+    }
+    
+    /* Reciclar */
+
+    #reciclar {
+        padding: 50px 80px;
+    }
+
+    #reciclarImg img {
+        width: 70%;
+        max-width: 460px;
+    }
+
+    /* Footer */
+
+    footer {
+        padding: 30px 30px;
+    }
+
+    #footerLeft img {
+        width: 70%;
+        max-width: 240px;
+    }
+
+    #footerRight img {
+        width: 70%;
+        max-width: 240px;
+    }
+
+    #footerMid {
+        gap: 30px;
+    }
+}
+
+@media only screen and (min-width: 1400px) and (max-width: 1920px) {
+
+    /* Geral */
+
+    .title {
+        font-size: 40px;
+    }
+
+    /* Menu e Indisponibilidade */
+    #menu, #indisponivel {
+        display: none;
+    }
+
+    /* Header */
+    header {
+        padding: 10px 75px;
+    }
+
+    /* Hero Section */
+    #heroSection {
+        padding: 50px 0px 50px 80px;
+    }
+
+    #heroText h1 {
+        font-size: 60px;
+        line-height: 60px;
+    }
+
+    /* Propósito */
+
+    #propTextResp, #propLerMais, #prop1400 {
+        display: none;
+    }
+
+    #proposito {
+        padding: 50px 80px;
+    }
+
+    #propText {
+        font-size: 18px;
+    }
+
+    /* Funcionamento */
+
+    #funcionamento {
+        padding: 50px 80px;
+    }
+
+    .option {
+        font-size: 17px;
+    }
+
+    #funcOptsResp, #funcTextResp {
+        display: none;
+    }
+
+    #funcInfo {
+        gap: 35px;
+        padding: 35px;
+        max-width: 1300px;
+    }
+    
+    #funcImg {
+        max-width: 400px;
+    }
+    
+    #funcText {
+        font-size: 20px;
+    }
+
+    /* Dúvidas */
+
+    #duvidas {
+        padding: 50px 80px;
+    }
+
+    #duvidasImg img {
+        width: 100%;
+        max-width: 490px;
+    }
+
+    #duvidasPerguntas h3 {
+        padding: 10px;
+        margin-top: 15px;
+        font-weight: 500;
+    }
+
+    #duvidasPerguntas h3 > .lupinha {
+        margin-right: 15px;
+    }
+
+    #duvidasPerguntas h3 > .seta-abrir {
+        font-size: 22px;
+    }
+    
+    /* Reciclar */
+
+    #reciclar {
+        padding: 50px 80px;
+    }
+
+    #reciclarImg img {
+        width: 70%;
+        max-width: 460px;
+    }
+
+    /* Footer */
+
+    footer {
+        padding: 30px 30px;
+    }
+
+    #footerLeft img {
+        width: 70%;
+        max-width: 240px;
+    }
+
+    #footerRight img {
+        width: 70%;
+        max-width: 240px;
+    }
+
+    #footerMid {
+        gap: 30px;
+    }
+}
+
+@media only screen and (min-width: 1921px) {
+
+    /* Gerais */
+    .title {
+        font-size: 40px;
+    }
+
+    /* Menu e Indiponibilidade */
+    #menu, #indisponivel {
+        display: none;
+    }
+
+    /* Header */
+    header {
+        padding: 10px 75px;
+    }
+    
+    /* Hero Section */
+    #heroSection {
+        padding: 50px 0px 50px 80px;
+    }
+
+    #heroText h1 {
+        font-size: 80px;
+        line-height: 95px;
+    }
+
+    #heroText p {
+        font-size: 20px;
+    }
+
+    #heroText button {
+        width: 200px;
+        height: 65px;
+        font-size: 21px;
+    }
+
+    #heroText button i {
+        font-size: 26px;
+    }
+
+    /* Propósito */
+
+    #propTextResp, #propLerMais, #prop1400 {
+        display: none;
+    }
+
+    #proposito {
+        padding: 50px 80px;
+    }
+
+    #propText {
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+    #propImg {
+        width: 45%;
+    }
+
+    /* Funcionamento */
+
+    #funcionamento {
+        padding: 50px 80px;
+    }
+
+    .option {
+        font-size: 17px;
+    }
+
+    #funcOptsResp, #funcTextResp {
+        display: none;
+    }
+
+    #funcInfo {
+        gap: 50px;
+        padding: 50px;
+        max-width: 1600px;
+    }
+    
+    #funcImg {
+        max-width: 600px;
+    }
+    
+    #funcText {
+        font-size: 22px;
+        line-height: 1.7;
+    }
+
+    /* Dúvidas */
+
+    #duvidas {
+        padding: 50px 40px;
+    }
+
+    #duvidasImg img {
+        width: 80%;
+        max-width: 580px;
+    }
+
+    #duvidasPerguntas h3 {
+        font-size: 25px;
+        padding: 10px;
+        margin-top: 15px;
+        font-weight: 500;
+    }
+
+    #duvidasPerguntas h3 > .lupinha {
+        margin-right: 15px;
+    }
+
+    #duvidasPerguntas h3 > .seta-abrir {
+        font-size: 22px;
+    }
+
+    /* Reciclar */
+
+    #reciclar {
+        padding: 50px 80px;
+    }
+
+    #reciclarImg img {
+        width: 60%;
+        max-width: 520px;
+    }
+
+    /* Footer */
+
+    footer {
+        padding: 50px 30px;
+    }
+
+    #footerLeft img {
+        width: 70%;
+        max-width: 240px;
+    }
+
+    #footerRight img {
+        width: 70%;
+        max-width: 240px;
+    }
+
+    #footerMid {
+        gap: 30px;
+        font-size: 20px;
+    }
+
+    #footerLeft {
+        font-size: 16px;
+    }
+}

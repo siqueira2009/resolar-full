@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* Configurações globais */
+* {
+    margin: 0px;
+    padding: 0px;
+
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+
+    scroll-behavior: smooth;
+}
+
+#indisponivel {
+    padding: 0 15px;
+    text-align: center;
+}
+
+body {
+    min-height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(144, 238, 144, 0.171);
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
+/* Geral */
+
+.container {
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 0px 40px;
+    border-radius: 15px;
+    align-items: center;
+    max-height: 90dvh;
+}
+
+.direita {
+    max-height: calc(90dvh - 10dvh - 40px);
+    padding: 40px;
+}
+
+.esquerda {
+    padding: 40px;
+    color: #2c2c2c;
+}
+
+.esquerda img {
+    width: 50%;
+}
+
+.esquerda p {
+    font-weight: 500;
+}
+
+.esquerda h3 {
+    font-weight: 400;
+}
+
+/* Direita do Forms */
+
+.inputGroup {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+#senha, #confirmarSenha, #cpf {
+    padding-right: 50px;
+}
+
+.input {
+    border: solid 1.5px #9e9e9e;
+    border-radius: 12px;
+    background: none;
+    padding: 15px;
+    font-size: 16px;
+    color: #333;
+    transition: border 150ms cubic-bezier(0.4,0,0.2,1), box-shadow 0.4s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.label {
+    position: absolute;
+    left: 15px;
+    color: #666;
+    pointer-events: none;
+    transform: translateY(16px);
+    transition: 150ms cubic-bezier(0.4,0,0.2,1);
+}
+
+.icon {
+    position: absolute;
+    font-size: 18px;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.input:focus, .input:valid {
+    outline: none;
+    border: 1.5px solid #4caf4f;
+    box-shadow: 0 0 0 6px rgb(76 175 79 / 10%);
+}
+
+.input:focus, .input:hover {
+    outline: none;
+    border-color: #4caf4f;
+    background-color: #fff;
+    box-shadow: 0 0 0 5px rgb(76 175 79 / 30%);
+}
+
+.input:focus ~ .label, .input:valid ~ .label {
+    transform: translateY(-50%) scale(0.8);
+    background-color: #fff;
+    padding: 0 .2em;
+    color: #4caf4f;
+}
+
+#formsEntrada .input:disabled {
+    background-color: #eae7e7;
+}
+
+.input:disabled:hover {
+    box-shadow: none;
+    border: solid 1.5px #9e9e9e;
+}
+
+#erros {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.buttons {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    gap: 30px;
+}
+
+.btn {
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: scale 0.4s;
+}
+
+.buttons h3:hover {
+    scale: 103%;
+    transition: scale 0.4s;
+}
+
+.voltar, .entrar {
+    color: #2c2c2c;
+    text-decoration: none;
+}
+
+.avançar {
+    padding: 10px;
+    padding-left: 15px;
+    background-color: #4caf4f;
+    color: #fff;
+    border-radius: 100px;
+}
+
+.erro {
+    margin-bottom: 10px;
+    color: rgba(255, 0, 0, 0.753);
+    text-align: center;
+    display: none;
+}
+
+.alert.error {
+    margin-bottom: 10px;
+    color: rgba(255, 0, 0, 0.753);
+    text-align: center;
+    display: block;
+}
+
+
+.buttons a:hover {
+    text-decoration: underline;
+}
+
+/* Confirmação */
+
+#confirmação .input ~ .label, #confirmação .input ~ .label {
+    transform: translateY(-50%) scale(0.8);
+    background-color: #fff;
+    padding: 0 .2em;
+}
+
+.terminar {
+    padding: 10px;
+    padding-left: 15px;
+    background-color: #4caf4f;
+    color: #fff;
+    border-radius: 100px;
+    border: none;
+    font-size: 17px
+}

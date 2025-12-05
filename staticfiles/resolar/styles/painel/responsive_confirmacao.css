@@ -1,0 +1,71 @@
+@media screen and (max-width: 260px) {
+    #confirmacao {
+        display: none;
+    }
+
+    #indisponivel {
+        display: flex;
+    }
+}
+
+@media screen and (min-width: 260px) and (max-width: 350px) {
+    /* Confirmação */
+
+    #confirmacao {
+        width: 90%;
+    }
+
+    #confirmacao h1 {
+        font-size: 27px;
+    }
+
+    #confirmacao img {
+        width: 100%;
+        min-width: 220px;
+    }
+
+    #confirmacao #confButtons {
+        flex-direction: column;
+    }
+
+    #confButtons a {
+        padding: 15px 15px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (min-width: 350px) and (max-width: 450px) {
+    /* Confirmação */
+
+    #confirmacao {
+        width: 90%;
+    }
+
+    #confirmacao img {
+        max-width: 390px;
+    }
+
+    #confirmacao #confButtons {
+        flex-direction: column;
+    }
+}
+
+@media screen and (min-width: 450px) and (max-width: 750px) {
+    /* Confirmação */
+
+    #confirmacao {
+        width: 70%;
+    }
+
+    #confirmacao #confButtons {
+        flex-direction: column;
+    }
+}
+
+@media screen and (min-width: 750px) {
+    /* Confirmação */
+
+    #confirmacao {
+        width: 70%;
+    }
+}

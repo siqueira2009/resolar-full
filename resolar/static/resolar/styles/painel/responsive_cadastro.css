@@ -1,0 +1,543 @@
+@media only screen and (max-width: 260px) {
+    header, .barras, #formulario {
+        display: none;
+    }
+
+    #indisponivel {
+        display: flex;
+    }
+}
+
+@media only screen and (min-width: 260px) and (max-width: 350px) {
+    /* Header */
+    body {
+        padding-bottom: 20px;
+    }
+
+    /* Header */
+
+    header {
+        width: 90%;
+        margin-top: 10px;
+    }
+
+    header nav span p {
+        display: none;
+    }
+
+    header nav span i {
+        font-size: 25px;
+        margin: 0;
+    }
+
+    .barras {
+        width: 90%;
+        margin-bottom: 10px;
+    }
+    
+    /* Formulário */
+
+    #formulario {
+        width: 90%;
+        padding: 20px 10px;
+        margin-top: 1%
+    }
+
+    #formulario h1 {
+        margin-top: 0px;
+    }
+
+    #dimensao .inputGroup .label {
+        display: none;
+    }
+
+    #dimensao .inputGroup .labelResp {
+        left: 10px;
+        display: block;
+    }
+
+    #dimensao {
+        width: 90%;
+    }
+
+    .inputGroup {
+        width: 90%;
+    }
+
+    .label {
+        left: 15px;
+    }
+
+    #formulario h1 {
+        font-size: 28px;
+    }
+
+    .btns {
+        flex-direction: column;
+        gap: 5px;
+        margin: 0px;
+    }
+
+    .btns .index {
+        display: none;
+    }
+
+    .btns .indexResp {
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    /* Formulário - Agendamento */
+
+    #calendario {
+        width: 100%;
+    }
+
+    #calendario #dias div {
+        width: 25px;
+        height: 25px;
+    }
+
+    #calendario #mesAtual {
+        font-size: 22px;
+    }
+
+    #resumoColeta {
+        font-size: 16px;
+    }
+
+    #calendario .dia {
+        padding: 15px;
+    }
+}
+
+@media only screen and (min-width: 350px) and (max-width: 450px) {
+    /* Header */
+    body {
+        padding-bottom: 20px;
+    }
+
+    /* Header */
+
+    header {
+        margin-top: 20px;
+        width: 90%;
+    }
+
+    header nav span {
+        gap: 10px;
+        align-items: end;
+    }
+
+    header nav span p {
+        display: none;
+    }
+
+    header nav span i {
+        font-size: 25px;
+        margin: 0;
+    }
+    
+    header nav span .indResp {
+        display: block;
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+    .barras {
+        width: 90%;
+    }
+    
+    /* Formulário */
+
+    #formulario {
+        width: 90%;
+        padding: 20px 10px;
+        margin-top: 1%
+    }
+
+    #formulario h1 {
+        margin-top: 0px;
+    }
+
+    .inputGroup {
+        width: 80%;
+    }
+
+    #dimensao {
+        width: 80%;
+    }
+
+    #dimensao .inputGroup .label {
+        display: none;
+    }
+
+    #dimensao .inputGroup .labelResp {
+        display: block;
+    }
+
+    .label {
+        left: 15px;
+        font-size: 14px;
+    }
+
+    #formulario h1 {
+        font-size: 28px;
+    }
+
+    .btns {
+        flex-direction: column;
+        gap: 5px;
+        margin: 0px;
+    }
+
+    .btns .index {
+        display: none;
+    }
+
+    .btns .indexResp {
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    /* Formulário - Agendamento */
+
+    #calendario {
+        width: 100%;
+    }
+
+    #calendario #dias div {
+        width: 35px;
+        height: 35px;
+    }
+
+    #calendario #mesAtual {
+        font-size: 24px;
+    }
+
+    #resumoColeta {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (min-width: 450px) and (max-width: 750px) {
+
+    /* Header */
+    body {
+        padding-bottom: 20px;
+    }
+
+    /* Header */
+
+    header {
+        margin-top: 20px;
+        width: 90%;
+    }
+
+    header nav span {
+        gap: 10px;
+        align-items: end;
+    }
+
+    header nav span p {
+        display: none;
+    }
+
+    header nav span i {
+        font-size: 25px;
+        margin: 0;
+    }
+
+    header nav span .indResp {
+        display: block;
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+    .barras {
+        width: 90%;
+    }
+    
+    /* Formulário */
+
+    #formulario {
+        width: 90%;
+        padding: 20px 10px;
+        margin-top: 1%
+    }
+
+    #formulario h1 {
+        margin-top: 0px;
+    }
+
+    #formulario #index {
+        text-align: center;
+    }
+
+    #dimensao {
+        width: 80%;
+    }
+
+    .inputGroup {
+        width: 80%;
+    }
+
+    #dimensao .inputGroup .label {
+        display: none;
+    }    
+
+    #dimensao .inputGroup .labelResp {
+        display: block;
+    }
+
+    .label {
+        left: 15px;
+        font-size: 14px;
+    }
+
+    #formulario h1 {
+        font-size: 28px;
+    }
+
+    .btns {
+        gap: 15px;
+    }
+
+    .indexResp {
+        display: none;
+    }
+
+    .index {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    /* Formulário - Agendamento */
+
+    #calendario {
+        width: 100%;
+    }
+
+    #calendario #dias div {
+        width: 47px;
+        height: 47px;
+    }
+
+    #calendario #mesAtual {
+        font-size: 26px;
+    }
+
+    #resumoColeta {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (min-width: 750px) and (max-width: 1250px) {
+
+    /* Header */
+    body {
+        padding-bottom: 20px;
+    }
+
+    /* Header */
+
+    header {
+        margin-top: 20px
+    }
+
+    header nav span {
+        gap: 10px;
+        align-items: end;
+        padding: 20px 0px;
+    }
+
+    header nav span p {
+        display: none;
+    }
+
+    header nav span i {
+        font-size: 30px;
+        margin: 0px;
+    }
+
+    header nav span .indResp {
+        display: block;
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+    #index p {
+        margin-left: 20px;
+    }
+
+    /* Formulário */
+
+    #formulario {
+        width: 80%;
+        padding: 20px 10px;
+        margin-top: 1%
+    }
+
+    .inputGroup {
+        width: 80%;
+    }
+
+    #dimensao {
+        width: 80%;
+    }
+
+
+    .label {
+        left: 15px;
+        font-size: 14px;
+    }
+
+    #formulario h1 {
+        font-size: 28px;
+    }
+
+    .indexResp {
+        display: none;
+    }
+
+    /* Formulário - Agendamento */
+
+    #calendario #dias div {
+        width: 50px;
+        height: 50px;
+    }
+
+    #calendario #mesAtual {
+        font-size: 30px;
+    }
+}
+
+@media only screen and (min-width: 1250px) and (max-width: 1300px) {
+
+    /* Geral */
+
+    body {
+        padding-bottom: 20px;
+    }
+
+    /* Header */
+
+    header {
+        margin-top: 20px
+    }
+
+    header nav span .indResp {
+        display: none;
+    }
+
+    header nav span p {
+        font-size: 14px;
+    }
+
+    header nav span i {
+        font-size: 22px;
+    }
+
+    /* Formulário */
+
+    #formulario {
+        padding: 25px;
+        margin-top: 1%;
+    }
+
+    .indexResp {
+        display: none;
+    }
+
+    /* Formulário - Agendamento */
+
+    #calendario {
+        width: 70%;
+    }
+
+    #calendario #mes #mesAtual {
+        font-size: 30px;
+    }
+
+    #calendario #dias div {
+        width: 50px;
+        height: 50px;
+    }
+
+    button i {
+        font-size: 20px;
+    }
+
+    #concluir {
+        font-size: 16px;
+    }
+
+    button:not(#concluir) {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (min-width: 1300px) and (max-width: 1920px) {
+
+    /* Geral */
+
+    body {
+        padding-bottom: 20px;
+    }
+
+    /* Header */
+
+    header {
+        margin-top: 20px
+    }
+
+    header nav span .indResp {
+        display: none;
+    }
+
+    header nav span p {
+        font-size: 16px;
+    }
+
+    header nav span i {
+        font-size: 22px;
+    }
+
+    /* Formulário */
+
+    #formulario {
+        padding: 25px;
+        margin-top: 1%;
+    }
+
+    .indexResp {
+        display: none;
+    }
+
+    /* Formulário - Agendamento */
+
+    #calendario {
+        width: 70%;
+    }
+
+    #calendario #mes #mesAtual {
+        font-size: 30px;
+    }
+
+    #calendario #dias div {
+        width: 50px;
+        height: 50px;
+    }
+
+    button i {
+        font-size: 20px;
+    }
+
+    #concluir {
+        font-size: 16px;
+    }
+
+    button:not(#concluir) {
+        font-size: 16px;
+    }
+}

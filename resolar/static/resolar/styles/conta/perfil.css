@@ -1,0 +1,413 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* Configurações globais */
+* {
+    margin: 0px;
+    padding: 0px;
+
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+
+    scroll-behavior: smooth;
+
+    box-sizing: border-box;
+}
+
+#indisponivel {
+    display: none;
+    padding: 0 15px;
+    text-align: center;
+}
+
+body {
+    background-color: rgba(144, 238, 144, 0.171);
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container */
+
+
+#container {
+    width: 50%;
+    height: auto;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    max-height: 90%;
+}
+
+/* Banner com saudações */
+
+#banner {
+    padding: 20px 10px;
+    height: auto;
+    width: 100%;
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
+    background-color: #4CAF4F;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    gap: 30px;
+
+    user-select: none;
+
+    position: relative;
+}
+
+#creditosContainer {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    color: black;
+    padding: 10px 20px;
+    right: 10px;
+    top: 10px;
+    background-color: white;
+    border-radius: 20px;
+}
+
+#creditos {
+    font-weight: 600;
+}
+
+#creditosContainer .emoji {
+    width: 25px;
+}
+
+#saudacoes {
+    font-weight: 400;
+    font-size: 35px;
+}
+
+#imgPerfil {
+    width: 130px;
+    height: 130px;
+    border: 2px white solid;
+    border-radius: 50%;
+    background-image: url("../../imgs/SVGs/Avatares/Profile_1.svg");
+    background-color: white;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0px;
+
+    cursor: pointer;
+}
+
+/* Informações (geral) */
+
+#info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    height: auto;
+    padding: 30px;
+    flex: 1;
+    text-align: center;
+}
+
+#info span {
+    font-size: 28px;
+    font-weight: 600;
+    color: #141414;
+}
+
+#info p {
+    margin-top: -5px;
+    margin-bottom: 20px;
+    color: rgba(0, 0, 0, 0.9);
+}
+
+.div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-direction: row;
+}
+
+/* Informações Pessoais */
+
+#inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+}
+
+.inputGroup {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.inputGroup .input {
+    border: solid 1.5px #9e9e9e;
+    border-radius: 12px;
+    background: none;
+    padding: 15px;
+    font-size: 16px;
+    color: #333;
+    transition: border 150ms cubic-bezier(0.4,0,0.2,1), box-shadow 0.4s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.label {
+    position: absolute;
+    left: 20px;
+    color: #666;
+    pointer-events: none;
+    transform: translateY(16px);
+    transition: 150ms cubic-bezier(0.4,0,0.2,1);
+}
+
+.input:focus, .input:valid {
+    outline: none;
+    border: 1.5px solid #4caf4f;
+    box-shadow: 0 0 0 6px rgb(76 175 79 / 10%);
+}
+
+.input:focus, .input:hover {
+    outline: none;
+    border-color: #4caf4f;
+    background-color: #fff;
+    box-shadow: 0 0 0 5px rgb(76 175 79 / 30%);
+}
+
+.input:focus ~ .label, .input:valid ~ .label {
+    transform: translateY(-50%) scale(0.8);
+    background-color: #fff;
+    padding: 0 .2em;
+    color: #4caf4f;
+}
+
+.input:disabled ~ .label {
+    transform: translateY(-50%) scale(0.8);
+    background-color: #eae7e7;
+    border-radius: 12px;
+    padding: 3px 10px;
+    color: #333;
+}
+
+.input:disabled {
+    background-color: #eae7e7;
+}
+
+.input:disabled:hover {
+    box-shadow: none;
+    border: solid 1.5px #9e9e9e;
+}
+
+#senhaAtual {
+    display: none;
+}
+
+.icon {
+    position: absolute;
+    font-size: 18px;
+    right: 20px;
+    top: 33%;
+    color: #666;
+    cursor: pointer;
+    z-index: 7;
+}
+
+.borda {
+    box-shadow: 0 0 0 8px rgb(76 175 79 / 40%) !important;
+}
+
+#info .alert.error {
+    margin-bottom: 10px;
+    color: rgba(255, 0, 0, 0.753);
+    text-align: center;
+    display: block;
+}
+
+/* Outras opções */
+
+#opcoes {
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+#opcoes a, #opcoesMobile a, #opcoes button, #opcoesMobile button {
+    padding: 15px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: scale 0.3s;
+    font-size: 16px;
+}
+
+#opcoes a:hover, #opcoesMobile a:hover, #opcoes button:hover, #opcoesMobile button:hover {
+    scale: 103%;
+    cursor: pointer;
+}
+
+.deletar {
+    color: white;
+    background-color: rgba(255, 0, 0, 0.8);
+    border: 2px rgba(255, 0, 0, 0.8) solid;
+}
+
+.salvar {
+    border: 2px #4CAF4F solid;
+    background-color: #4CAF4F;
+    color: white;
+}
+
+.cancelar, .sair {
+    border: 2px #4CAF4F solid;
+    color: #4CAF4F;
+}
+
+#divDeletar, #divOutros {
+    display: flex;
+    gap: 20px;
+}
+
+#opcoesMobile {
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Confirmação de exclusão de conta */
+
+#confExcluir {
+    padding: 40px;
+    position: absolute;
+    width: 45%;
+    height: auto;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    transition: all 0.4s;
+
+    z-index: -10;
+    opacity: 0;
+}
+
+#confButtons {
+    width: 100%;
+    display: flex;
+}
+
+#confExcluir span {
+    text-align: center;
+    font-size: 30px;
+}
+
+#confExcluir p {
+    text-align: center;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 5px;
+    color: black;
+}
+
+#confExcluir p #frase {
+    font-size: 24px;
+}
+
+#confExcluir p span {
+    font-size: 20px;
+}
+
+#confExcluir .emoji {
+    width: 5%;
+}
+
+#confExcluir #confDeletar {
+    padding: 15px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: scale 0.3s, opacity 0.3s;
+    border: 0;
+    color: white;
+    font-size: 18px;
+    margin: 0 auto;
+    margin-top: 20px;
+    background-color: rgba(255, 0, 0, 0.8);
+    border: 2px rgba(255, 0, 0, 0.8) solid;
+    cursor: not-allowed;
+
+    opacity: 0.3;
+}
+
+#confExcluir #confCancelar {
+    padding: 15px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: 2px #4CAF4F solid;
+    color: #4CAF4F;
+    font-size: 18px;
+    margin: 0 auto;
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: white;
+    transition: scale 0.4s;
+}
+
+#confExcluir #confCancelar:hover {
+    scale: 103%;
+}
+
+#confExcluir #confDeletar.ativo {
+    cursor: pointer;
+    opacity: 1;
+}
+
+#confExcluir #confDeletar.ativo:hover {
+    scale: 1.03;
+}
+
+#confExcluir #confDeletar:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+img.emoji {
+    height: 1.2em;
+    width: 1.2em;
+    margin: 0 0.15em;
+    vertical-align: -0.2em;
+    display: inline-block;
+}

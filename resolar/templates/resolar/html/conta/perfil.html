@@ -1,0 +1,127 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'resolar/imgs/LogoSemNome.png' %}">
+    <link rel="stylesheet" href="{% static 'resolar/styles/conta/perfil.css' %}">
+    <link rel="stylesheet" href="{% static 'resolar/styles/conta/responsive_perfil.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- Tela de indisponibilidade para telas muito pequenas -->
+    <div id="indisponivel">
+        <h2>Site indisponível para sua resolução de tela</h2>
+        <p>Lamentamos por isto! &#128546;</p>
+    </div>
+
+    <!-- Confirmação de exclusão de conta -->
+    <div id="confExcluir">
+        <span style="font-weight: 500;">Sentimos muito em vê-lo ir 😭</span>
+
+        <p>Para excluir sua conta, preencha o campo abaixo com a seguinte frase:<span id="frase">"O rato roeu a roupa do rei de Roma"</span></p>
+
+        <div class="inputGroup" style="margin-bottom: 0px;">
+            <input id="fraseInput" required="" type="text" name="frase" class="input">
+            <label for="frase" class="label">Frase</label>
+            <div id="confButtons">
+                <a id="confCancelar"><i class="fa-solid fa-remove"></i> Cancelar</a>
+                <a id="confDeletar"><i class="fa-solid fa-trash"></i> Deletar</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container com o conteúdo -->
+    <div id="container">
+        <!-- Banner com saudações -->
+        <div id="banner">
+            <div id="imgPerfil"></div>
+            <h2 id="saudacoes"><span id="bom"></span>, <span id="nomeSaudacoes"></span>!</h2>
+            <div id="creditosContainer">🪙 Créditos:<span id="creditos">{{user.userprofile.creditos}}</span></div>
+        </div>
+
+
+<!-- Outras Informações -->
+<div id="info">
+    <!-- Informações Pessoais -->
+    <span>Informações Pessoais</span>
+    <p>Clique para alterar as informações</p>
+
+    <form action="{% url 'salvar' %}" method="POST" autocomplete="off">
+        {% csrf_token %}
+
+        <div class="div">
+            <div id="inputs">
+                <div class="inputGroup">
+                    <input value="{{ user.userprofile.nome }}" id="nome" required="" type="text" name="nome" class="input">
+                    <label for="nome" class="label">Nome</label>
+                </div>
+                <div class="inputGroup">
+                    <input value="{{ user.email }}" id="email" autocomplete="off" required="" type="text" name="email" class="input">
+                    <label for="email" class="label">E-mail</label>
+                </div>
+                <div class="inputGroup">
+                    <input value="{{ user.username }}" id="cpf" required="" type="text" name="cpf" class="input" disabled>
+                    <label for="cpf" class="label">CPF/CNPJ</label>
+                </div>
+                <div class="inputGroup">
+                    <input value="" id="senha" type="password" name="senha" class="input" placeholder="Digite uma nova senha">
+                    <label for="senha" class="label">Senha</label>
+                    <i id="verSenha" class="fa-solid fa-eye icon"></i>
+                </div>
+                <div class="inputGroup" id="senhaAtual">
+                    <input id="confirmarSenha" value="" type="password" name="senhaAtual" class="input info" placeholder="Digite a senha atual">
+                    <label for="senhaAtual" class="label">Senha Atual</label>
+                    <i id="verSenha2" class="fa-solid fa-eye icon"></i>
+                </div>
+            </div>
+        </div>
+
+        {% if messages %}
+            {% for message in messages%}
+                <p class="alert {{message.tags}}"> {{message}} </p>
+            {% endfor %}
+        {% endif %}
+
+        <!-- Outras Opções (sair, excluir, salvar e cancelar) -->
+        <div class="div">
+            <div id="opcoes">
+                <div id="divDeletar">
+                    <a class="deletar"><i class="fa-solid fa-trash"></i>Deletar conta</a>
+                </div>
+
+                <div id="divOutros">
+                    <a href="{% url 'sair' %}" class="sair"><i class="fa-solid fa-right-from-bracket"></i>Sair</a>
+                    <a href="{% url 'inicio' %}" class="cancelar"><i class="fa-solid fa-home"></i>Inicio</a>
+                    <button type="submit" class="salvar"><i class="fa-solid fa-save"></i>Salvar</button>
+                </div>
+            </div>
+
+            <div id="opcoesMobile">
+                <div id="divOutros">
+                    <a href="{% url 'inicio' %}" class="cancelar"><i class="fa-solid fa-home"></i>Início</a>
+                    <button type="submit" class="salvar"><i class="fa-solid fa-save"></i>Salvar</button>
+                </div>
+                <div id="divDeletar">
+                    <a class="deletar"><i class="fa-solid fa-trash"></i>Deletar conta</a>
+                    <a href="{% url 'sair' %}" class="sair"><i class="fa-solid fa-right-from-bracket"></i>Sair</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+    <script src="{% static 'resolar/scripts/perfil.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js" crossorigin="anonymous"></script>
+    <script>
+        twemoji.parse(document.querySelector('body'), {
+            folder: 'svg',
+            ext: '.svg',
+            base: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/'
+        });
+    </script>
+</body>
+</html>

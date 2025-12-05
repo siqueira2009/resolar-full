@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Conta - ReSolar</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'resolar/imgs/LogoSemNome.png' %}">
+    <link rel="stylesheet" href="{% static 'resolar/styles/conta/criar.css' %}">
+    <link rel="stylesheet" href="{% static 'resolar/styles/conta/responsive_criar.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- Tela de indisponibilidade para telas muito pequenas -->
+    <div id="indisponivel">
+        <h2>Site indisponível para sua resolução de tela</h2>
+        <p>Lamentamos por isto! &#128546;</p>
+    </div>
+
+    <!-- Criar conta -->
+
+    <div id="formsEntrada" class="container" style="display: flex;">
+
+        <!-- Imagem e título -->
+        <div id="formEsquerda" class="esquerda">
+            <img src="{% static 'resolar/imgs/LogoSemNome.png' %}" alt="Logo Resolar">
+            <p>Conta</p>
+            <h3>Crie sua conta usando um e-mail</h3>
+        </div>
+
+
+        <!-- Forms de cadastro -->
+        <form id="formDireita" class="direita">
+            <div class="inputGroup">
+                <input id="nome" required="" type="text" name="username" autocomplete="off" class="input">
+                <label for="nome" class="label">Nome</label>
+            </div>
+
+            <div class="inputGroup">
+                <input id="email" required="" type="text" name="email" autocomplete="off" class="input">
+                <label for="email" class="label">Email</label>
+            </div>
+
+            <div class="inputGroup">
+                <input id="cpf" required="" type="text" name="cpf" autocomplete="off" class="input">
+                <label for="cpf" class="label">CPF/CNPJ</label>
+                <i id="gerarCpf" class="fa-solid fa-dice icon"></i>
+            </div>
+
+            <div class="inputGroup">
+                <input id="senha" required="" type="password" name="password" autocomplete="off" class="input">
+                <label for="senha" class="label">Senha</label>
+                <i id="verSenha1" class="fa-solid fa-eye icon"></i>
+            </div>
+
+            <div class="inputGroup">
+                <input title="Digite a senha primeiro." id="confirmarSenha" required="" type="password" name="confirmar_senha" autocomplete="off" class="input" disabled>
+                <label for="senha" class="label">Confirme sua senha</label>
+                <i id="verSenha2" class="fa-solid fa-eye icon"></i>
+            </div>
+
+            <div id="erros">
+                <p id="erroSenha" class="erro">Digite a mesma senha!</p>
+                <p id="erroCampos" class="erro">Preencha todos os campos!</p>
+                <p id="erroCpf" class="erro">Número inválido de dígitos do CPF/CNPJ!</p>
+                {% if messages %}
+                    {% for message in messages%}
+                        <p class="alert {{ message.tags }}">{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+                <a class="btn entrar" href="{% url 'entrar' %}">Já tem conta? Entre agora</a>
+            </div>
+
+            <div class="buttons">
+                <a class="btn voltar" id="voltar" href="{% url 'inicio' %}">Retornar</a>
+                <h3 class="btn avançar" id="proximo">Avançar<i class="fa-solid fa-angle-right"></i></h3>
+            </div>
+
+        </form>
+    </div>
+
+    <!-- Confirmação -->
+
+    <div id="confirmação" class="container" style="display: none;">
+
+        <!-- Imagem e título -->
+        <div id="confEsquerda" class="esquerda">
+            <img src="{% static 'resolar/imgs/LogoSemNome.png' %}" alt="Logo Resolar">
+            <p>Confirmação</p>
+            <h3>Suas informações estão corretas?</h3>
+        </div>
+
+
+        <!-- Forms de confirmação -->
+        <form id="confDireita" class="direita" action="{% url 'cadastro' %}" method="POST">
+            {% csrf_token %}
+            <div class="inputGroup">
+                <input id="nomeRev" readonly required="" type="text" name="username" autocomplete="off" class="input">
+                <label for="nome" class="label">Nome</label>
+            </div>
+
+            <div class="inputGroup">
+                <input id="emailRev" readonly required="" type="email" name="email" autocomplete="off" class="input">
+                <label for="email" class="label">Email</label>
+            </div>
+
+            <div class="inputGroup">
+                <input id="cpfRev" readonly required="" type="text" name="cpf" autocomplete="off" class="input">
+                <label for="cpf" class="label">CPF/CNPJ</label>
+            </div>
+
+            <div class="inputGroup">
+                <input id="senhaRev" readonly required="" type="password" name="password" autocomplete="off" class="input">
+                <label for="senha" class="label">Senha</label>
+                <i id="verSenha3" class="fa-solid fa-eye icon"></i>
+            </div>
+
+            <div class="buttons">
+                <h3 class="btn voltar" id="voltar2" href="{% url 'inicio' %}">Retornar</h3>
+                <button class="btn terminar" id="terminar">Terminar<i class="fa-solid fa-angle-right"></i></button>
+            </div>
+        </form>
+    </div>
+
+    <script src="{% static 'resolar/scripts/criar.js' %}"></script>
+</body>
+</html>

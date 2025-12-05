@@ -1,0 +1,152 @@
+@media screen and (max-width: 260px) {
+    
+    /* Indisponibilidade */
+
+    body {
+        height: 100dvh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #container {
+        display: none;
+    }
+
+    #indisponivel {
+        display: block;
+    }
+
+}
+
+@media screen and (min-width: 260px) and (max-width: 550px) {
+   
+    /* Container e divs */
+
+    #container {
+        width: 90dvw;
+    }
+
+    #confExcluir {
+        width: 80dvw;
+    }
+
+    #confButtons {
+        flex-direction: column;
+    }
+
+    .div {
+        gap: 20px;
+    }
+
+    /* Banner com saudações */
+
+    #banner {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #creditosContainer {
+        position: relative;
+        top: 0px;
+        right: 0px;
+    }
+
+    #imgPerfil {
+        width: 100px;
+        height: 100px;
+    }
+
+    #saudacoes {
+        text-align: center;
+        font-size: 30px;
+    }
+
+    /* Informações Pessoais */
+
+    #inputs {
+        width: 100%;
+    }
+
+    .inputGroup .input {
+        font-size: 14px;
+    }
+
+    /* Outras Opções */
+
+    #divOutros, #opcoes {
+        flex-direction: column-reverse;
+        gap: 10px;
+    }
+
+    #opcoesMobile {
+        display: none;
+    }
+
+    #divOutros {
+        width: 100%;
+    }
+
+    #divDeletar, #divOutros {
+        width: 100%;;
+    }
+
+    .deletar, .salvar, .cancelar, .sair {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 550px) and (max-width: 800px) {
+    
+    /* Container */
+
+    #container {
+        width: 90dvw;
+    }
+
+    #confExcluir {
+        width: 80dvw;
+    }
+
+    /* Outras opções */
+
+    #opcoes {
+        display: none;
+    }
+    
+    #divDeletar, #divOutros {
+        width: 100%;;
+    }
+
+    .deletar, .salvar, .cancelar, .sair {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1330px) {
+    
+    /* Container */
+
+    #container {
+        width: 90dvw;
+    }
+
+    #confExcluir {
+        width: 80dvw;
+    }
+
+    /* Outras opções */
+
+    #opcoesMobile {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1330px) {
+
+    /* Outras opções */
+    
+    #opcoesMobile {
+        display: none;
+    }
+}

@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Painéis</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'resolar/imgs/LogoSemNome.png' %}">
+    <link rel="stylesheet" href="{% static 'resolar/styles/painel/confirmacao.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- Tela de indisponibilidade -->
+    <div id="indisponivel">
+        <h2>Site indisponível para sua resolução de tela</h2>
+        <p>Lamentamos por isto! &#128546;</p>
+    </div>
+
+    <!-- Tela de confirmação -->
+    <div id="confirmacao" class="ativo">
+        <h1>Cadastro <span>concluído!</span> &#128513;</h1>
+        <img src="{% static 'resolar/imgs/SVGs/Concluído.svg' %}" alt="Confirmação de cadastro concluído">
+        <p>Código do cadastro: <span id="codigo">07072009</span><i id="copiar" class="fa-solid fa-copy"></i></p>
+        <div id="confButtons">
+            <a href="{% url 'inicio' %}"><i class="fa-solid fa-house"></i>Início</a>
+            <a href="{% url 'dashboard' %}" id="dashboard" type="button"><i class="fa-solid fa-table-columns"></i>Dashboard</a>
+        </div>
+    </div>
+
+    <script src="{% static 'resolar/scripts/confirmacao.js' %}"></script>
+</body>
+</html>
